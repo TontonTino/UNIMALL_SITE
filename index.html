@@ -441,6 +441,23 @@ ul{list-style:none}
   .photo-grid{gap:6px}
   .fcats{grid-template-columns:1fr}
 }
+
+/* ─── Hero Vidéo ─────────────────────────────── */
+.hero-video-section{position:relative;width:100%;height:min(520px,85vw);overflow:hidden;background:#111;flex-shrink:0}
+.hero-video-section video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(140deg,rgba(10,10,10,.88) 0%,rgba(40,12,0,.55) 55%,rgba(10,10,10,.2) 100%)}
+.hero-text{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:40px 20px}
+.hero-eyebrow{font-size:12px;font-weight:700;color:var(--o);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:26px;height:2px;background:var(--o)}
+.hero-text h1{font-family:var(--fh);font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;color:white;line-height:1.12;margin-bottom:12px}
+.hero-text h1 span{background:linear-gradient(90deg,var(--o),#ffaa44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.65)}
+@media(max-width:768px){
+  .hero-video-section{height:min(380px,80vw)}
+  .hero-text{padding:24px 16px}
+  .hero-text h1{font-size:clamp(1.5rem,6vw,2rem)}
+  .hero-sub{display:none}
+}
 </style>
 </head>
 <body>
@@ -483,8 +500,9 @@ ul{list-style:none}
   <div class="hm">
     <div class="W hm-in">
       <a class="logo" id="logoHome" href="#" onclick="resetToAll();return false;" aria-label="UNIMALL Accueil">
-        <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="44" height="44"
-             fetchpriority="high" onerror="this.style.display='none'">
+        <img src="assets/images/logo-unimal.jpg" alt="UNIMALL" width="44" height="44"
+             fetchpriority="high"
+             onerror="this.outerHTML='<div style=\'width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#FF6600,#9b1c2c);display:flex;align-items:center;justify-content:center;flex-shrink:0\'><span style=\'font-family:Syne,sans-serif;font-size:13px;font-weight:900;color:white;letter-spacing:-0.5px\'>UN</span></div>'">
         <div>
           <span class="ln">UNI<em>MALL</em></span>
           <span class="lt">Grand Magasin · Ouagadougou</span>
@@ -550,6 +568,22 @@ ul{list-style:none}
     </div>
   </nav>
 </header>
+
+
+<!-- ══════ HERO VIDÉO ══════ -->
+<section class="hero-video-section" id="heroSection">
+  <video autoplay muted loop playsinline
+         poster="assets/images/hero-poster.jpg"
+         onerror="this.closest('.hero-video-section').style.display='none'">
+    <source src="assets/videos/promo.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-text W">
+    <p class="hero-eyebrow">Grand Magasin · Ouagadougou</p>
+    <h1>Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
+    <p class="hero-sub">19 rayons · Ouaga 2000, Boulevard Tensoba</p>
+  </div>
+</section>
 
 <!-- ══════ TICKER ══════ -->
 <div class="ticker" role="marquee" aria-label="Annonces">
