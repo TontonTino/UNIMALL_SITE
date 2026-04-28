@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#FF6600">
-<title>UNIMALL Ouagadougou | Grand Magasin — 19 Rayons</title>
-<meta name="description" content="UNIMALL — votre grand magasin à Ouagadougou. Meubles, électronique, cosmétiques, sport, cuisine, bricolage et bien plus. Ouaga 2000, Boulevard Tensoba.">
+<title>UNIMALL | Meilleur Supermarché à Ouagadougou - Ouaga 2000 & Boulevard Tensoba</title>
+<meta name="description" content="UNIMALL — le plus grand magasin de Ouagadougou avec 19 rayons spécialisés : meubles, électronique, cosmétiques, sport, cuisine, décoration, bricolage et bien plus. Situé à Ouaga 2000, Boulevard Tensoba.">
+<meta name="keywords" content="supermarché Ouagadougou, magasin Ouaga 2000, UNIMALL Burkina, meubles Ouagadougou, électronique Burkina, cosmétique Ouaga, prix supermarché Burkina">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -580,8 +581,8 @@ ul{list-style:none}
   <div class="hero-overlay"></div>
   <div class="hero-text W">
     <p class="hero-eyebrow">Grand Magasin · Ouagadougou</p>
-    <h1>Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
-    <p class="hero-sub">19 rayons · Ouaga 2000, Boulevard Tensoba</p>
+    <h1>UNIMALL — Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
+    <p class="hero-sub">19 rayons spécialisés · Ouaga 2000, Boulevard Tensoba</p>
   </div>
 </section>
 
@@ -648,7 +649,7 @@ ul{list-style:none}
     <div class="W">
       <div class="bento-head">
         <span class="stag"><i class="fas fa-th-large"></i> Nos Rayons</span>
-        <h2 class="sec-title">19 catégories à explorer</h2>
+        <h2 class="sec-title">Nos 19 rayons spécialisés à Ouagadougou</h2>
         <p class="sec-sub">Cliquez pour filtrer instantanément les photos</p>
       </div>
       <div class="bento-grid" id="bentoGrid"></div>
@@ -660,7 +661,7 @@ ul{list-style:none}
     <div class="W infos-grid">
       <div class="infos-text">
         <span class="stag">Notre magasin</span>
-        <h2>Visitez <strong>UNIMALL</strong></h2>
+        <h2>Visitez <strong>UNIMALL</strong> — Le plus grand magasin de Ouagadougou</h2>
         <p>Grand magasin de référence à Ouagadougou, UNIMALL réunit 19 rayons sous un même toit : meubles, électronique, cuisine, décoration, sport, mode, bricolage et bien plus encore.</p>
         <p>Situés à <strong>Ouaga 2000, Boulevard Tensoba</strong>, nous vous accueillons tous les jours de la semaine.</p>
         <div class="hours-box">
@@ -701,7 +702,7 @@ ul{list-style:none}
   <div class="W fg">
     <div class="fb-brand">
       <div class="flogo">
-        <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="36" height="36"
+        <img src="assets/images/logo-unimal.jpg" alt="UNIMALL" width="36" height="36"
              loading="lazy" onerror="this.style.display='none'">
         <div>
           <span class="ln" style="color:#fff;font-size:19px">UNI<em>MALL</em></span>
@@ -742,6 +743,7 @@ ul{list-style:none}
 /* ─── 19 CATÉGORIES ─────────────────────────────── */
 const CATS = [
   { id:'Meubles',                    label:'Meubles',            icon:'couch',         color:'linear-gradient(140deg,#1c0a00,#5c2000,#FF6600)', size:'wide', badge:'Arrivage',  desc:'Canapés, tables, lits, armoires' },
+  { id:'Electromenager',             label:'Électroménager',      icon:'blender',       color:'linear-gradient(140deg,#1a0a00,#7c2d12,#c2410c)', size:'',     badge:'Top vente', desc:'Frigos, machines à laver, fours' },
   { id:'Electronique',               label:'Électronique',        icon:'tv',            color:'linear-gradient(140deg,#0f172a,#1e3a5f,#2563eb)', size:'tall', badge:'Top vente', desc:'TV, téléphones, gadgets' },
   { id:'Cuisine',                    label:'Cuisine',             icon:'utensils',      color:'linear-gradient(140deg,#7f1d1d,#991b1b,#b91c1c)', size:'',     badge:null,        desc:'Casseroles, appareils ménagers' },
   { id:'Sport',                      label:'Sport',               icon:'dumbbell',      color:'linear-gradient(140deg,#052e16,#14532d,#16a34a)', size:'',     badge:'Nouveau',   desc:'Haltères, tapis, fitness' },
@@ -828,28 +830,25 @@ function waLink(catLabel) {
 
 /* ─── Rendu d'une carte photo épurée ─────────── */
 function makePhotoCard(p, eager) {
-  const imgAttr = eager
-    ? `src="${p.img}" class="pcard-img loaded"`
-    : `data-src="${p.img}" class="pcard-img" src=""`;
-
-  return `
-    <article class="pcard reveal" role="listitem" aria-label="Photo ${p.catLabel}">
-      <!-- Image plein format -->
-      <img ${imgAttr} alt="${p.catLabel}" width="400" height="533"
-           loading="${eager ? 'eager' : 'lazy'}"
-           onerror="this.style.display='none'">
-      <!-- Dégradé bas -->
+  // Vérification img.onload : on crée la carte uniquement si l'image se charge
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      const imgAttr = eager
+        ? `src="${p.img}" class="pcard-img loaded"`
+        : `data-src="${p.img}" class="pcard-img" src=""`;
+      resolve(`
+    <article class="pcard reveal" role="listitem" aria-label="Produit du rayon ${p.catLabel} chez UNIMALL Ouagadougou">
+      <img ${imgAttr} alt="Produit du rayon ${p.catLabel} chez UNIMALL Ouagadougou" width="400" height="533"
+           loading="${eager ? 'eager' : 'lazy'}">
       <div class="pcard-grad" aria-hidden="true"></div>
-      <!-- Placeholder icône -->
       <div class="pcard-placeholder" aria-hidden="true">
         <i class="fas fa-${p.catIcon}" style="color:rgba(0,0,0,.1);font-size:40px"></i>
       </div>
-      <!-- Catégorie — discrète, bas gauche -->
       <div class="pcard-cat">
         <i class="fas fa-${p.catIcon}"></i>
         ${p.catLabel}
       </div>
-      <!-- Bouton WhatsApp — icône flottante bas droite -->
       <a href="${waLink(p.catLabel)}"
          class="pcard-wa"
          target="_blank" rel="noopener noreferrer"
@@ -857,11 +856,15 @@ function makePhotoCard(p, eager) {
          onclick="event.stopPropagation()">
         <i class="fab fa-whatsapp"></i>
       </a>
-    </article>`;
+    </article>`);
+    };
+    img.onerror = () => resolve(null); // image absente → carte ignorée silencieusement
+    img.src = p.img;
+  });
 }
 
 /* ─── Rendu de la grille ─────────────────────── */
-function renderGrid(reset = true) {
+async function renderGrid(reset = true) {
   const grid  = document.getElementById('photoGrid');
   const empty = document.getElementById('emptyState');
   const lmWrap= document.getElementById('lmWrap');
@@ -885,17 +888,18 @@ function renderGrid(reset = true) {
   empty.classList.remove('show');
 
   if (reset) {
-    // Flash de skeletons puis rendu
     grid.innerHTML = Array(Math.min(10, page.length)).fill('<div class="skel"></div>').join('');
-    requestAnimationFrame(() => {
-      grid.innerHTML = page.map((p, i) => makePhotoCard(p, i < 10)).join('');
-      pageIndex += page.length;
-      lmWrap.style.display = hasMore ? 'block' : 'none';
-      initLazy();
-      initReveal();
-    });
+    const cards = await Promise.all(page.map((p, i) => makePhotoCard(p, i < 10)));
+    const html = cards.filter(Boolean).join('');
+    grid.innerHTML = html;
+    pageIndex += page.length;
+    lmWrap.style.display = hasMore ? 'block' : 'none';
+    initLazy();
+    initReveal();
   } else {
-    grid.insertAdjacentHTML('beforeend', page.map(p => makePhotoCard(p, false)).join(''));
+    const cards = await Promise.all(page.map(p => makePhotoCard(p, false)));
+    const html = cards.filter(Boolean).join('');
+    grid.insertAdjacentHTML('beforeend', html);
     pageIndex += page.length;
     lmWrap.style.display = (pageIndex < total) ? 'block' : 'none';
     initLazy();
