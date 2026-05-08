@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#FF6600">
-<title>UNIMALL | Meilleur Supermarché à Ouagadougou - Ouaga 2000 & Boulevard Tensoba</title>
-<meta name="description" content="UNIMALL — le plus grand magasin de Ouagadougou avec 19 rayons spécialisés : meubles, électronique, cosmétiques, sport, cuisine, décoration, bricolage et bien plus. Situé à Ouaga 2000, Boulevard Tensoba.">
-<meta name="keywords" content="supermarché Ouagadougou, magasin Ouaga 2000, UNIMALL Burkina, meubles Ouagadougou, électronique Burkina, cosmétique Ouaga, prix supermarché Burkina">
+<title>UNIMALL Ouagadougou | Grand Magasin — 19 Rayons</title>
+<meta name="description" content="UNIMALL — votre grand magasin à Ouagadougou. Meubles, électronique, cosmétiques, sport, cuisine, bricolage et bien plus. Ouaga 2000, Boulevard Tensoba.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -318,10 +317,12 @@ ul{list-style:none}
 .btn-reset{display:inline-flex;align-items:center;gap:7px;background:var(--o);color:white;padding:0 22px;height:var(--tap);border-radius:50px;font-size:14px;font-weight:700;margin-top:14px;transition:var(--t);border:none;cursor:pointer;font-family:var(--fb)}
 .btn-reset:hover{background:var(--o-dk)}
 
-/* Charger plus */
-.lm-wrap{text-align:center;margin-top:32px}
-.lm-btn{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:2px solid var(--border);color:var(--mid);padding:0 28px;height:var(--tap-lg);border-radius:50px;font-size:14px;font-weight:700;transition:var(--t);cursor:pointer;font-family:var(--fb)}
-.lm-btn:hover{border-color:var(--o);color:var(--o)}
+/* Voir plus */
+.lm-wrap{display:none;justify-content:center;margin-top:36px;margin-bottom:8px}
+.lm-btn{display:inline-flex;align-items:center;gap:10px;background:var(--o);color:white;padding:0 32px;height:52px;border-radius:50px;font-size:15px;font-weight:700;transition:var(--t);cursor:pointer;font-family:var(--fb);border:none;box-shadow:var(--sh-o);letter-spacing:.2px}
+.lm-btn:hover{background:var(--o-dk);transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,102,0,.45)}
+.lm-btn:active{transform:scale(.97)}
+.lm-btn i{font-size:16px}
 
 /* ═══════════════════════════════════════════════════
    INFOS MAGASIN (en bas, avant le footer)
@@ -501,7 +502,7 @@ ul{list-style:none}
   <div class="hm">
     <div class="W hm-in">
       <a class="logo" id="logoHome" href="#" onclick="resetToAll();return false;" aria-label="UNIMALL Accueil">
-        <img src="assets/images/logo-unimal.jpg" alt="UNIMALL" width="44" height="44"
+        <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="44" height="44"
              fetchpriority="high"
              onerror="this.outerHTML='<div style=\'width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#FF6600,#9b1c2c);display:flex;align-items:center;justify-content:center;flex-shrink:0\'><span style=\'font-family:Syne,sans-serif;font-size:13px;font-weight:900;color:white;letter-spacing:-0.5px\'>UN</span></div>'">
         <div>
@@ -581,8 +582,8 @@ ul{list-style:none}
   <div class="hero-overlay"></div>
   <div class="hero-text W">
     <p class="hero-eyebrow">Grand Magasin · Ouagadougou</p>
-    <h1>UNIMALL — Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
-    <p class="hero-sub">19 rayons spécialisés · Ouaga 2000, Boulevard Tensoba</p>
+    <h1>Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
+    <p class="hero-sub">19 rayons · Ouaga 2000, Boulevard Tensoba</p>
   </div>
 </section>
 
@@ -635,10 +636,10 @@ ul{list-style:none}
         <button class="btn-reset" onclick="resetToAll()"><i class="fas fa-redo"></i> Tout afficher</button>
       </div>
 
-      <!-- Charger plus -->
+      <!-- Voir plus de produits -->
       <div class="lm-wrap" id="lmWrap" style="display:none">
         <button class="lm-btn" id="lmBtn">
-          <i class="fas fa-plus-circle"></i> Charger plus d'articles
+          <i class="fas fa-plus-circle"></i> Voir plus de produits
         </button>
       </div>
     </div>
@@ -649,7 +650,7 @@ ul{list-style:none}
     <div class="W">
       <div class="bento-head">
         <span class="stag"><i class="fas fa-th-large"></i> Nos Rayons</span>
-        <h2 class="sec-title">Nos 19 rayons spécialisés à Ouagadougou</h2>
+        <h2 class="sec-title">19 catégories à explorer</h2>
         <p class="sec-sub">Cliquez pour filtrer instantanément les photos</p>
       </div>
       <div class="bento-grid" id="bentoGrid"></div>
@@ -661,7 +662,7 @@ ul{list-style:none}
     <div class="W infos-grid">
       <div class="infos-text">
         <span class="stag">Notre magasin</span>
-        <h2>Visitez <strong>UNIMALL</strong> — Le plus grand magasin de Ouagadougou</h2>
+        <h2>Visitez <strong>UNIMALL</strong></h2>
         <p>Grand magasin de référence à Ouagadougou, UNIMALL réunit 19 rayons sous un même toit : meubles, électronique, cuisine, décoration, sport, mode, bricolage et bien plus encore.</p>
         <p>Situés à <strong>Ouaga 2000, Boulevard Tensoba</strong>, nous vous accueillons tous les jours de la semaine.</p>
         <div class="hours-box">
@@ -702,7 +703,7 @@ ul{list-style:none}
   <div class="W fg">
     <div class="fb-brand">
       <div class="flogo">
-        <img src="assets/images/logo-unimal.jpg" alt="UNIMALL" width="36" height="36"
+        <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="36" height="36"
              loading="lazy" onerror="this.style.display='none'">
         <div>
           <span class="ln" style="color:#fff;font-size:19px">UNI<em>MALL</em></span>
@@ -743,7 +744,6 @@ ul{list-style:none}
 /* ─── 19 CATÉGORIES ─────────────────────────────── */
 const CATS = [
   { id:'Meubles',                    label:'Meubles',            icon:'couch',         color:'linear-gradient(140deg,#1c0a00,#5c2000,#FF6600)', size:'wide', badge:'Arrivage',  desc:'Canapés, tables, lits, armoires' },
-  { id:'Electromenager',             label:'Électroménager',      icon:'blender',       color:'linear-gradient(140deg,#1a0a00,#7c2d12,#c2410c)', size:'',     badge:'Top vente', desc:'Frigos, machines à laver, fours' },
   { id:'Electronique',               label:'Électronique',        icon:'tv',            color:'linear-gradient(140deg,#0f172a,#1e3a5f,#2563eb)', size:'tall', badge:'Top vente', desc:'TV, téléphones, gadgets' },
   { id:'Cuisine',                    label:'Cuisine',             icon:'utensils',      color:'linear-gradient(140deg,#7f1d1d,#991b1b,#b91c1c)', size:'',     badge:null,        desc:'Casseroles, appareils ménagers' },
   { id:'Sport',                      label:'Sport',               icon:'dumbbell',      color:'linear-gradient(140deg,#052e16,#14532d,#16a34a)', size:'',     badge:'Nouveau',   desc:'Haltères, tapis, fitness' },
@@ -764,20 +764,35 @@ const CATS = [
   { id:'Vehicule_moto',              label:'Véhicule & Moto',     icon:'motorcycle',    color:'linear-gradient(140deg,#111,#292524,#57534e)',   size:'wide', badge:'Top vente', desc:'Accessoires auto & moto' },
 ];
 
-/* ─── GÉNÉRATION des 76 photos (19 × 4) ─────────
-   Chaque catégorie a 4 photos : photo1.jpg → photo4.jpg
-   Chemin : assets/images/[CATEGORIE]/photo[N].jpg
+/* ─── DÉCOUVERTE ILLIMITÉE DES PHOTOS ────────────
+   Pour chaque catégorie, on tente photo1, photo2, photo3…
+   On s'arrête dès qu'une image renvoie une erreur 404.
+   Résultat stocké dans ALL_PHOTOS (Promise résolue au boot).
 ────────────────────────────────────────────────── */
-function buildPhotoList() {
+const MAX_PROBE = 60; // sécurité : jamais plus de 60 photos par catégorie
+
+function probePhoto(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload  = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+async function discoverPhotos() {
   const list = [];
   for (const cat of CATS) {
-    for (let n = 1; n <= 4; n++) {
+    for (let n = 1; n <= MAX_PROBE; n++) {
+      const url = `assets/images/${cat.id}/photo${n}.jpg`;
+      const ok  = await probePhoto(url);
+      if (!ok) break; // plus d'image dans cette catégorie
       list.push({
         catId:    cat.id,
         catLabel: cat.label,
         catIcon:  cat.icon,
         catColor: cat.color,
-        img:      `assets/images/${cat.id}/photo${n}.jpg`,
+        img:      url,
         photoN:   n,
       });
     }
@@ -796,11 +811,11 @@ function shuffle(arr) {
 }
 
 /* ─── État global ────────────────────────────── */
-const ALL_PHOTOS = shuffle(buildPhotoList()); // 76 photos mélangées, fixes pour la session
-let currentCat = 'all';
-let searchQ    = '';
-let pageIndex  = 0;
-const PAGE_SZ  = 20; // photos par page
+let ALL_PHOTOS  = [];   // rempli après découverte async
+let currentCat  = 'all';
+let searchQ     = '';
+let pageIndex   = 0;
+const PAGE_SZ   = 12;  // photos par page ("Voir plus")
 
 /* ─── Filtrage ───────────────────────────────── */
 function getFiltered() {
@@ -830,17 +845,15 @@ function waLink(catLabel) {
 
 /* ─── Rendu d'une carte photo épurée ─────────── */
 function makePhotoCard(p, eager) {
-  // Vérification img.onload : on crée la carte uniquement si l'image se charge
-  return new Promise(resolve => {
-    const img = new Image();
-    img.onload = () => {
-      const imgAttr = eager
-        ? `src="${p.img}" class="pcard-img loaded"`
-        : `data-src="${p.img}" class="pcard-img" src=""`;
-      resolve(`
+  const imgAttr = eager
+    ? `src="${p.img}" class="pcard-img loaded"`
+    : `data-src="${p.img}" class="pcard-img" src=""`;
+
+  return `
     <article class="pcard reveal" role="listitem" aria-label="Produit du rayon ${p.catLabel} chez UNIMALL Ouagadougou">
       <img ${imgAttr} alt="Produit du rayon ${p.catLabel} chez UNIMALL Ouagadougou" width="400" height="533"
-           loading="${eager ? 'eager' : 'lazy'}">
+           loading="${eager ? 'eager' : 'lazy'}"
+           onerror="this.style.display='none'">
       <div class="pcard-grad" aria-hidden="true"></div>
       <div class="pcard-placeholder" aria-hidden="true">
         <i class="fas fa-${p.catIcon}" style="color:rgba(0,0,0,.1);font-size:40px"></i>
@@ -856,25 +869,21 @@ function makePhotoCard(p, eager) {
          onclick="event.stopPropagation()">
         <i class="fab fa-whatsapp"></i>
       </a>
-    </article>`);
-    };
-    img.onerror = () => resolve(null); // image absente → carte ignorée silencieusement
-    img.src = p.img;
-  });
+    </article>`;
 }
 
 /* ─── Rendu de la grille ─────────────────────── */
-async function renderGrid(reset = true) {
-  const grid  = document.getElementById('photoGrid');
-  const empty = document.getElementById('emptyState');
-  const lmWrap= document.getElementById('lmWrap');
-  const cnt   = document.getElementById('countPill');
+function renderGrid(reset = true) {
+  const grid   = document.getElementById('photoGrid');
+  const empty  = document.getElementById('emptyState');
+  const lmWrap = document.getElementById('lmWrap');
+  const cnt    = document.getElementById('countPill');
 
   if (reset) pageIndex = 0;
 
-  const items = getFiltered();
-  const total = items.length;
-  const page  = items.slice(pageIndex, pageIndex + PAGE_SZ);
+  const items   = getFiltered();
+  const total   = items.length;
+  const page    = items.slice(pageIndex, pageIndex + PAGE_SZ);
   const hasMore = (pageIndex + PAGE_SZ) < total;
 
   if (cnt) cnt.textContent = `${total} photo${total > 1 ? 's' : ''}`;
@@ -882,26 +891,24 @@ async function renderGrid(reset = true) {
   if (!total) {
     grid.innerHTML = '';
     empty.classList.add('show');
-    lmWrap.style.display = 'none';
+    if (lmWrap) lmWrap.style.display = 'none';
     return;
   }
   empty.classList.remove('show');
 
   if (reset) {
-    grid.innerHTML = Array(Math.min(10, page.length)).fill('<div class="skel"></div>').join('');
-    const cards = await Promise.all(page.map((p, i) => makePhotoCard(p, i < 10)));
-    const html = cards.filter(Boolean).join('');
-    grid.innerHTML = html;
-    pageIndex += page.length;
-    lmWrap.style.display = hasMore ? 'block' : 'none';
-    initLazy();
-    initReveal();
+    grid.innerHTML = Array(Math.min(PAGE_SZ, page.length)).fill('<div class="skel"></div>').join('');
+    requestAnimationFrame(() => {
+      grid.innerHTML = page.map((p, i) => makePhotoCard(p, i < 12)).join('');
+      pageIndex += page.length;
+      if (lmWrap) lmWrap.style.display = hasMore ? 'flex' : 'none';
+      initLazy();
+      initReveal();
+    });
   } else {
-    const cards = await Promise.all(page.map(p => makePhotoCard(p, false)));
-    const html = cards.filter(Boolean).join('');
-    grid.insertAdjacentHTML('beforeend', html);
+    grid.insertAdjacentHTML('beforeend', page.map(p => makePhotoCard(p, false)).join(''));
     pageIndex += page.length;
-    lmWrap.style.display = (pageIndex < total) ? 'block' : 'none';
+    if (lmWrap) lmWrap.style.display = (pageIndex < total) ? 'flex' : 'none';
     initLazy();
     initReveal();
   }
@@ -1219,10 +1226,9 @@ function initLoadMore() {
 }
 
 /* ─── INIT ───────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   buildNavs();
   renderBento();
-  renderGrid(true);      // ← 76 photos mélangées, affichées dès l'ouverture
   initSearch();
   initNav();
   initLoadMore();
@@ -1231,7 +1237,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initWA();
   setTimeout(initReveal, 80);
 
-  console.log('%c UNIMALL V8 ✅ — 76 photos · 19 catégories · Vitrine épurée',
+  // Afficher skeletons pendant la découverte
+  const grid = document.getElementById('photoGrid');
+  if (grid) grid.innerHTML = Array(12).fill('<div class="skel"></div>').join('');
+
+  // Découverte illimitée des photos via img.onload/onerror
+  const found = await discoverPhotos();
+  ALL_PHOTOS  = shuffle(found);
+
+  // Mettre à jour le countPill dès que c'est prêt
+  const cnt = document.getElementById('countPill');
+  if (cnt) cnt.textContent = `${ALL_PHOTOS.length} photo${ALL_PHOTOS.length > 1 ? 's' : ''}`;
+
+  renderGrid(true);
+
+  console.log(`%c UNIMALL V9 ✅ — ${ALL_PHOTOS.length} photos découvertes · 19 catégories · Illimité`,
     'background:linear-gradient(90deg,#FF6600,#9b1c2c);color:#fff;padding:6px 16px;border-radius:6px;font-weight:bold;font-size:12px');
 });
 </script>
