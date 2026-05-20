@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#FF6600">
@@ -287,5 +288,1261 @@
     </footer>
 
     <script type="module" src="./js/app.js"></script>
+=======
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FF6600">
+<title>UNIMALL Ouagadougou | Grand Magasin — 19 Rayons</title>
+<meta name="description" content="UNIMALL — votre grand magasin à Ouagadougou. Meubles, électronique, cosmétiques, sport, cuisine, bricolage et bien plus. Ouaga 2000, Boulevard Tensoba.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   VARIABLES & RESET
+═══════════════════════════════════════════════════ */
+:root{
+  --o:#FF6600; --o-dk:#cc5200; --o-lt:#fff4ed;
+  --bd:#9b1c2c; --bd-lt:#fff0f2;
+  --wa:#25d366; --wa-dk:#128c7e;
+  --ink:#111; --ink2:#1a1a1a;
+  --mid:#374151; --muted:#6b7280;
+  --bg:#f0f0f0; --white:#fff; --border:#e5e7eb;
+  --sh:0 4px 20px rgba(0,0,0,.10);
+  --sh-lg:0 14px 44px rgba(0,0,0,.18);
+  --sh-xl:0 24px 64px rgba(0,0,0,.24);
+  --sh-o:0 8px 28px rgba(255,102,0,.35);
+  --sh-wa:0 8px 28px rgba(37,211,102,.45);
+  --r:16px; --r-lg:24px; --r-xl:32px;
+  --tap:48px; --tap-lg:54px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --t:all .25s var(--ease);
+  --fh:'Syne',system-ui,sans-serif;
+  --fb:'Plus Jakarta Sans',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fb);font-size:15px;color:var(--mid);background:var(--bg);line-height:1.6;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+input{font-family:inherit;font-size:16px}
+ul{list-style:none}
+.W{width:100%;max-width:1340px;margin:0 auto;padding:0 16px}
+
+/* ── Skeleton placeholder ── */
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel{background:linear-gradient(90deg,#e8e8e8 25%,#d8d8d8 50%,#e8e8e8 75%);background-size:200% 100%;animation:sk 1.4s ease-in-out infinite;border-radius:var(--r-lg);aspect-ratio:3/4}
+
+/* ═══════════════════════════════════════════════════
+   WHATSAPP FLOTTANT (seul bouton d'action)
+═══════════════════════════════════════════════════ */
+.wa-fab{position:fixed;bottom:24px;right:20px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-bubble{background:var(--ink2);color:white;padding:10px 14px;border-radius:14px 14px 0 14px;font-size:12.5px;line-height:1.45;max-width:165px;text-align:right;position:relative;box-shadow:var(--sh-lg);animation:bIn .4s var(--ease) both}
+.wa-bubble p{color:rgba(255,255,255,.7);margin-bottom:1px}
+.wa-bubble strong{color:#4ade80}
+.wa-bx{position:absolute;top:-8px;left:-8px;width:20px;height:20px;border-radius:50%;background:var(--muted);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;cursor:pointer;border:none;transition:var(--t)}
+.wa-bx:hover{background:var(--bd)}
+.wa-bubble::after{content:'';position:absolute;bottom:-8px;right:14px;width:0;height:0;border-left:8px solid transparent;border-top:8px solid var(--ink2)}
+.wa-bubble.gone{display:none}
+@keyframes bIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:scale(1)}}
+.wa-main-btn{display:flex;align-items:center;gap:8px;background:var(--wa);color:white;border-radius:50px;padding:0 20px;height:var(--tap-lg);font-size:14.5px;font-weight:700;box-shadow:var(--sh-wa);transition:var(--t);white-space:nowrap;text-decoration:none}
+.wa-main-btn i{font-size:22px}
+.wa-main-btn:hover{background:var(--wa-dk);transform:scale(1.05)}
+.scroll-top{position:fixed;bottom:88px;right:20px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--o);color:white;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-o);transition:var(--t);opacity:0;transform:translateY(10px);pointer-events:none}
+.scroll-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.scroll-top:hover{background:var(--o-dk);transform:translateY(-3px)}
+
+/* ═══════════════════════════════════════════════════
+   TICKER
+═══════════════════════════════════════════════════ */
+.ticker{background:var(--bd);color:white;font-size:12.5px;font-weight:600;padding:8px 0;overflow:hidden}
+.ticker-track{display:inline-flex;gap:56px;animation:tick 30s linear infinite;will-change:transform;white-space:nowrap}
+.ticker-track span{display:inline-flex;align-items:center;gap:10px}
+.ticker-track i{color:#ffb347}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+
+/* ═══════════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════════ */
+.header{position:sticky;top:0;z-index:800;background:var(--white);box-shadow:0 2px 20px rgba(0,0,0,.08);transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 4px 28px rgba(0,0,0,.16)}
+.topbar{background:var(--ink2);padding:7px 0;font-size:12px}
+.tb-in{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tb-l{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.62);flex-wrap:wrap}
+.tb-l i{color:var(--o)}
+.tsep{opacity:.3}
+.tb-r{display:flex;align-items:center;gap:14px}
+.tb-r a{color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px;transition:var(--t);min-height:32px}
+.tb-r a:hover{color:var(--o)}
+.hm{padding:11px 0 0}
+.hm-in{display:flex;align-items:center;gap:12px;padding-bottom:11px}
+/* Logo */
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;min-height:var(--tap);text-decoration:none;cursor:pointer}
+.logo img{height:44px;width:44px;object-fit:contain;border-radius:8px}
+.ln{font-family:var(--fh);font-size:23px;font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1}
+.ln em{font-style:normal;color:var(--o)}
+.lt{font-size:10px;color:var(--muted);letter-spacing:.3px;margin-top:2px}
+/* Search */
+.sw{flex:1;max-width:560px;position:relative;margin:0 auto}
+.sb{display:flex;align-items:center;background:var(--bg);border:2px solid transparent;border-radius:50px;padding:0 4px 0 14px;transition:var(--t)}
+.sb:focus-within{border-color:var(--o);background:var(--white);box-shadow:0 0 0 4px rgba(255,102,0,.1)}
+.sb-ico{color:var(--muted);font-size:14px;flex-shrink:0;margin-right:6px}
+.sb input{flex:1;border:none;outline:none;background:none;height:var(--tap);font-size:15px;color:var(--ink);padding:0}
+.sb input::placeholder{color:var(--muted)}
+.sb-clr{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;transition:var(--t)}
+.sb-clr:hover{background:rgba(0,0,0,.06);color:var(--bd)}
+.suggest{position:absolute;top:calc(100%+7px);left:0;right:0;background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh-lg);z-index:500;overflow:hidden;display:none}
+.suggest.open{display:block}
+.sug-row{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:var(--t);min-height:var(--tap)}
+.sug-row:hover{background:var(--bg)}
+.sug-dot{width:36px;height:36px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;color:rgba(255,255,255,.8)}
+.sug-name{font-weight:700;font-size:13.5px;color:var(--ink);display:block}
+.sug-meta{font-size:11.5px;color:var(--o);font-weight:600}
+.ha{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.hbtn{width:var(--tap);height:var(--tap);border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--mid);transition:var(--t)}
+.hbtn:hover{background:var(--o-lt);color:var(--o)}
+.mob-sb-btn{display:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:var(--tap);height:var(--tap);background:var(--bg);border-radius:50%;transition:var(--t);flex-shrink:0}
+.hamburger span{display:block;width:19px;height:2px;background:var(--mid);border-radius:2px;transition:var(--t)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* Barre recherche mobile */
+.mob-sb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 0;display:none}
+.mob-sb.open{display:block;animation:sdown .2s var(--ease) both}
+@keyframes sdown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+/* Cat nav desktop */
+.cat-nav{background:var(--ink2);border-top:1px solid rgba(255,255,255,.05)}
+.cn-in{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+.cn-in::-webkit-scrollbar{display:none}
+.cpill{display:flex;align-items:center;gap:5px;padding:9px 15px;color:rgba(255,255,255,.58);font-size:12.5px;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent;transition:var(--t);background:none;cursor:pointer;font-family:var(--fb);min-height:42px}
+.cpill:hover,.cpill.active{color:var(--white);border-bottom-color:var(--o)}
+.cpill.all-pill{color:#ffb347}
+.cpill.all-pill.active{border-bottom-color:#ffb347}
+.cpill i{font-size:11px}
+
+/* ═══════════════════════════════════════════════════
+   NAV MOBILE
+═══════════════════════════════════════════════════ */
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:1050;display:none;backdrop-filter:blur(4px)}
+.nav-overlay.open{display:block;animation:fIn .2s ease}
+@keyframes fIn{from{opacity:0}to{opacity:1}}
+.nav-mob{position:fixed;top:0;left:-100%;width:min(300px,86vw);height:100%;background:var(--white);z-index:1100;display:flex;flex-direction:column;box-shadow:var(--sh-xl);transition:left .3s var(--ease);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:env(safe-area-inset-bottom)}
+.nav-mob.open{left:0}
+.nm-head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;background:var(--ink2);flex-shrink:0}
+.nm-close{color:rgba(255,255,255,.8);font-size:20px;width:var(--tap);height:var(--tap);display:flex;align-items:center;justify-content:center}
+.nm-list{padding:6px 0;flex:1}
+.nm-btn{display:flex;align-items:center;gap:12px;padding:0 20px;width:100%;text-align:left;color:var(--mid);font-size:14.5px;font-weight:600;border-left:3px solid transparent;height:var(--tap-lg);transition:var(--t);background:none;cursor:pointer;font-family:var(--fb)}
+.nm-btn i{width:20px;text-align:center;font-size:14px;flex-shrink:0}
+.nm-btn:hover,.nm-btn.active{background:var(--o-lt);color:var(--o);border-left-color:var(--o)}
+.nm-btn.all-mob{color:var(--bd)}
+.nm-btn.all-mob:hover{background:var(--bd-lt);border-left-color:var(--bd);color:var(--bd)}
+.nm-foot{padding:14px 18px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px}
+.nm-phone{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--o);color:white;border-radius:50px;font-weight:700;font-size:14.5px;min-height:var(--tap-lg);transition:var(--t);text-decoration:none}
+.nm-phone:hover{background:var(--o-dk)}
+.nm-soc{display:flex;gap:10px;justify-content:center}
+.nm-soc a{width:40px;height:40px;border-radius:50%;background:var(--bg);color:var(--mid);display:flex;align-items:center;justify-content:center;font-size:15px;transition:var(--t)}
+.nm-soc a:hover{background:var(--o);color:white}
+
+/* ═══════════════════════════════════════════════════
+   BENTO GRID 19 CATÉGORIES
+═══════════════════════════════════════════════════ */
+.bento-section{padding:44px 0 0}
+.bento-head{text-align:center;margin-bottom:28px}
+.sec-title{font-family:var(--fh);font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;color:var(--ink);margin-bottom:7px}
+.sec-sub{font-size:14.5px;color:var(--muted);max-width:460px;margin:0 auto}
+.stag{display:inline-flex;align-items:center;gap:6px;background:var(--o-lt);color:var(--o);padding:4px 13px;border-radius:50px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:13px}
+.tile{border-radius:var(--r-xl);padding:22px 20px;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease);display:flex;flex-direction:column;justify-content:flex-end;user-select:none;box-shadow:0 4px 22px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.07)}
+.tile:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 18px 52px rgba(0,0,0,.24)}
+.tile:active{transform:scale(.97)}
+.tile-wide{grid-column:span 2}
+.tile-tall{grid-row:span 2}
+.tile-bg-i{position:absolute;top:50%;right:-8px;transform:translateY(-55%) rotate(-10deg);font-size:125px;opacity:.09;pointer-events:none;line-height:1;transition:transform .4s ease,opacity .4s ease;color:white}
+.tile:hover .tile-bg-i{transform:translateY(-58%) rotate(-5deg) scale(1.1);opacity:.15}
+.tile::before{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.08) 55%,transparent 100%)}
+.tile-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease;z-index:0}
+.tile-photo.loaded{opacity:.25}
+.tile-content{position:relative;z-index:2}
+.tile-badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);color:white;font-size:10px;font-weight:800;padding:3px 10px;border-radius:50px;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px;backdrop-filter:blur(4px)}
+.tile-title{font-family:var(--fh);font-size:clamp(.95rem,1.5vw,1.2rem);font-weight:900;color:white;line-height:1.2;margin-bottom:4px}
+.tile-wide .tile-title,.tile-tall .tile-title{font-size:clamp(1.1rem,1.7vw,1.5rem)}
+.tile-desc{font-size:12px;color:rgba(255,255,255,.68);line-height:1.5;margin-bottom:12px}
+.tile-cta{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.28);color:white;padding:6px 13px;border-radius:50px;font-size:12px;font-weight:700;backdrop-filter:blur(6px);transition:var(--t)}
+.tile:hover .tile-cta{background:rgba(255,255,255,.27);gap:9px}
+
+/* ═══════════════════════════════════════════════════
+   CATALOGUE — GRILLE PHOTOS ÉPURÉE
+   Priorité absolue au visuel
+═══════════════════════════════════════════════════ */
+#catalogueSection{padding:44px 0 72px}
+
+/* Barre de contrôle catalogue */
+.ctrl-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.ctrl-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ctrl-title{font-family:var(--fh);font-size:clamp(1.2rem,3vw,1.6rem);font-weight:900;color:var(--ink)}
+.count-pill{font-size:12px;color:var(--muted);background:var(--white);border:1px solid var(--border);padding:3px 11px;border-radius:50px}
+.shuffle-tag{display:inline-flex;align-items:center;gap:5px;background:var(--o-lt);color:var(--o);font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;letter-spacing:.4px}
+.filter-tag{display:none;align-items:center;gap:5px;background:var(--bd-lt);color:var(--bd);font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px}
+.filter-tag.show{display:inline-flex}
+.reset-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--border);color:var(--muted);padding:0 14px;height:36px;border-radius:50px;font-size:12.5px;font-weight:600;transition:var(--t);cursor:pointer;font-family:var(--fb)}
+.reset-btn:hover{border-color:var(--o);color:var(--o)}
+
+/* Chips filtre (scrollables sur mobile) */
+.filter-bar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px;margin-bottom:20px}
+.filter-bar::-webkit-scrollbar{display:none}
+.fchip{display:flex;align-items:center;gap:5px;padding:0 14px;height:36px;border-radius:50px;border:1.5px solid var(--border);font-size:12.5px;font-weight:600;color:var(--mid);background:var(--white);transition:var(--t);cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:var(--fb)}
+.fchip:hover{border-color:var(--o);color:var(--o)}
+.fchip.active{background:var(--o);color:white;border-color:var(--o)}
+.fchip.fall{border-color:var(--bd);color:var(--bd)}
+.fchip.fall:hover,.fchip.fall.active{background:var(--bd);color:white;border-color:var(--bd)}
+.fchip i{font-size:10px}
+
+/* ═══════════════════════════════════════════════════
+   CARTE PRODUIT ÉPURÉE
+   Image plein format · Catégorie discrète · WA minimal
+═══════════════════════════════════════════════════ */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+
+.pcard{
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  /* Ratio portrait légèrement */
+  aspect-ratio:3/4;
+  background:linear-gradient(135deg,#e8e0d8,#d8d0c8);
+  box-shadow:0 3px 14px rgba(0,0,0,.1);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.pcard:hover{
+  transform:translateY(-5px) scale(1.01);
+  box-shadow:0 14px 40px rgba(0,0,0,.18);
+}
+.pcard:active{transform:scale(.97)}
+
+/* Image principale — prend toute la carte */
+.pcard-img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .4s ease,transform .5s ease;
+}
+.pcard-img.loaded{opacity:1}
+.pcard:hover .pcard-img{transform:scale(1.05)}
+
+/* Dégradé sombre en bas pour lisibilité */
+.pcard-grad{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,.05) 45%,transparent 70%);
+  z-index:1;
+}
+
+/* Catégorie — discrète, en bas à gauche */
+.pcard-cat{
+  position:absolute;
+  bottom:10px;left:10px;
+  z-index:3;
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  color:rgba(255,255,255,.9);
+  font-size:10.5px;font-weight:700;
+  padding:4px 10px;border-radius:50px;
+  text-transform:uppercase;letter-spacing:.5px;
+  border:1px solid rgba(255,255,255,.12);
+}
+.pcard-cat i{font-size:9px;color:var(--o)}
+
+/* Bouton WhatsApp — icône flottante en bas à droite */
+.pcard-wa{
+  position:absolute;
+  bottom:8px;right:8px;
+  z-index:4;
+  width:38px;height:38px;
+  border-radius:50%;
+  background:var(--wa);
+  color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;
+  box-shadow:0 4px 14px rgba(37,211,102,.5);
+  transition:var(--t);
+  text-decoration:none;
+  opacity:0;
+  transform:scale(.8);
+}
+.pcard:hover .pcard-wa{
+  opacity:1;
+  transform:scale(1);
+}
+.pcard-wa:hover{
+  background:var(--wa-dk);
+  transform:scale(1.15)!important;
+}
+
+/* Placeholder avant chargement image */
+.pcard-placeholder{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:0;
+}
+.pcard-placeholder i{
+  font-size:32px;color:rgba(0,0,0,.12);
+}
+
+/* État vide */
+.empty-state{text-align:center;padding:72px 20px;color:var(--muted);display:none}
+.empty-state.show{display:block}
+.empty-state i{font-size:48px;color:var(--border);display:block;margin-bottom:14px}
+.empty-state h3{font-size:1.1rem;color:var(--mid);margin-bottom:8px}
+.btn-reset{display:inline-flex;align-items:center;gap:7px;background:var(--o);color:white;padding:0 22px;height:var(--tap);border-radius:50px;font-size:14px;font-weight:700;margin-top:14px;transition:var(--t);border:none;cursor:pointer;font-family:var(--fb)}
+.btn-reset:hover{background:var(--o-dk)}
+
+/* Voir plus */
+.lm-wrap{display:none;justify-content:center;margin-top:36px;margin-bottom:8px}
+.lm-btn{display:inline-flex;align-items:center;gap:10px;background:var(--o);color:white;padding:0 32px;height:52px;border-radius:50px;font-size:15px;font-weight:700;transition:var(--t);cursor:pointer;font-family:var(--fb);border:none;box-shadow:var(--sh-o);letter-spacing:.2px}
+.lm-btn:hover{background:var(--o-dk);transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,102,0,.45)}
+.lm-btn:active{transform:scale(.97)}
+.lm-btn i{font-size:16px}
+
+/* ═══════════════════════════════════════════════════
+   INFOS MAGASIN (en bas, avant le footer)
+═══════════════════════════════════════════════════ */
+.infos-section{padding:64px 0;background:var(--white)}
+.infos-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.infos-text h2{font-family:var(--fh);font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:900;color:var(--ink);margin-bottom:14px}
+.infos-text h2 strong{color:var(--o)}
+.infos-text p{font-size:14.5px;color:var(--muted);line-height:1.75;margin-bottom:12px}
+.hours-box{background:var(--bg);border-radius:var(--r);padding:16px 20px;margin:16px 0;border:1px solid var(--border)}
+.hrow{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13.5px}
+.hrow+.hrow{border-top:1px dashed var(--border);margin-top:5px;padding-top:10px}
+.hrow span{color:var(--muted);display:flex;align-items:center;gap:7px}
+.hrow i{color:var(--o)}
+.hrow strong{color:var(--ink)}
+.infos-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:var(--o);color:white;padding:0 20px;height:var(--tap-lg);border-radius:50px;font-weight:700;font-size:14px;transition:var(--t);text-decoration:none}
+.btn-o:hover{background:var(--o-dk);transform:translateY(-2px)}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:white;padding:0 20px;height:var(--tap-lg);border-radius:50px;font-weight:700;font-size:14px;transition:var(--t);text-decoration:none}
+.btn-wa:hover{background:var(--wa-dk);transform:translateY(-2px)}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ccard{display:flex;align-items:flex-start;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:var(--t)}
+.ccard:hover{border-color:rgba(255,102,0,.25);box-shadow:var(--sh)}
+.cc-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ccard>div{display:flex;flex-direction:column;gap:2px}
+.ccard strong{font-size:12.5px;color:var(--ink);font-weight:700}
+.ccard span,.ccard a{font-size:12.5px;color:var(--muted);transition:var(--t)}
+.ccard a:hover{color:var(--o)}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+.footer{background:var(--ink2);color:rgba(255,255,255,.65);padding:48px 0 0}
+.fg{display:grid;grid-template-columns:2fr 1.4fr 1.2fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fb-brand p{font-size:13.5px;line-height:1.75;margin:12px 0 18px}
+.flogo{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.flogo img{height:38px;width:38px;object-fit:contain;border-radius:6px}
+.fsoc{display:flex;gap:10px}
+.fsoc a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;font-size:13px;transition:var(--t)}
+.fsoc a:hover{background:var(--o);color:white}
+.fc h4{font-size:13px;font-weight:700;color:white;margin-bottom:14px}
+.fcats{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px}
+.fcl{display:flex;align-items:center;gap:6px;font-size:12.5px;color:rgba(255,255,255,.55);background:none;border:none;cursor:pointer;padding:3px 0;text-align:left;transition:var(--t);font-family:var(--fb);min-height:30px}
+.fcl i{font-size:9px;color:var(--o)}
+.fcl:hover{color:white;padding-left:4px}
+.finf{display:flex;flex-direction:column;gap:9px}
+.finf li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,.55)}
+.finf i{color:var(--o);font-size:12px;margin-top:3px;flex-shrink:0}
+.finf a{color:rgba(255,255,255,.55);transition:var(--t)}
+.finf a:hover{color:white}
+.fbot{border-top:1px solid rgba(255,255,255,.07);padding:16px 0;text-align:center}
+.fbot p{font-size:12px;color:rgba(255,255,255,.32)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media(max-width:1280px){
+  .photo-grid{grid-template-columns:repeat(4,1fr)}
+  .fg{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:1024px){
+  .bento-grid{grid-template-columns:repeat(3,1fr)}
+  .photo-grid{grid-template-columns:repeat(3,1fr)}
+  .infos-grid{grid-template-columns:1fr;gap:32px}
+  .contact-cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  /* Header */
+  .topbar{display:none}
+  .logo img{height:38px;width:38px}
+  .ln{font-size:20px}
+  .lt{display:none}
+  .sw{display:none}
+  .mob-sb-btn{display:flex}
+  .hamburger{display:flex}
+  .cat-nav{display:none}
+  /* Bento mobile */
+  .bento-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:155px;gap:10px}
+  .tile-wide{grid-column:span 1}
+  .tile-tall{grid-row:span 1}
+  .tile:first-child{grid-column:span 2;min-height:185px}
+  .tile{padding:16px 14px;border-radius:var(--r-lg)}
+  .tile-bg-i{font-size:75px}
+  .tile-title{font-size:.9rem}
+  .tile-wide .tile-title,.tile-tall .tile-title{font-size:1rem}
+  .tile-desc{display:none}
+  .tile-cta{padding:5px 11px;font-size:11px}
+  /* Catalogue */
+  #catalogueSection{padding:32px 0 56px}
+  .ctrl-bar{margin-bottom:12px}
+  /* ═══ GRILLE PHOTO MOBILE — 2 colonnes ═══ */
+  .photo-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  /* Sur mobile, montrer le bouton WA toujours visible (pas de hover) */
+  .pcard-wa{opacity:1;transform:scale(1);width:34px;height:34px;font-size:15px}
+  /* Infos */
+  .infos-section{padding:48px 0}
+  .contact-cards{grid-template-columns:1fr}
+  .infos-btns{flex-direction:column}
+  .btn-o,.btn-wa{justify-content:center}
+  /* Footer */
+  .fg{grid-template-columns:1fr;gap:24px}
+  .fcats{grid-template-columns:1fr 1fr}
+  /* WA fab */
+  .wa-fab{bottom:16px;right:14px}
+  .wa-main-btn{width:54px;height:54px;padding:0;border-radius:50%;justify-content:center}
+  .wa-main-btn .wl{display:none}
+  .wa-bubble{font-size:12px;max-width:150px}
+  .scroll-top{bottom:82px;right:14px}
+}
+@media(max-width:400px){
+  .W{padding:0 10px}
+  .bento-grid{grid-auto-rows:145px;gap:8px}
+  .tile:first-child{min-height:172px}
+  .photo-grid{gap:6px}
+  .fcats{grid-template-columns:1fr}
+}
+
+/* ─── Hero Vidéo ─────────────────────────────── */
+.hero-video-section{position:relative;width:100%;height:min(520px,85vw);overflow:hidden;background:#111;flex-shrink:0}
+.hero-video-section video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(140deg,rgba(10,10,10,.88) 0%,rgba(40,12,0,.55) 55%,rgba(10,10,10,.2) 100%)}
+.hero-text{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:40px 20px}
+.hero-eyebrow{font-size:12px;font-weight:700;color:var(--o);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:26px;height:2px;background:var(--o)}
+.hero-text h1{font-family:var(--fh);font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;color:white;line-height:1.12;margin-bottom:12px}
+.hero-text h1 span{background:linear-gradient(90deg,var(--o),#ffaa44);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.65)}
+@media(max-width:768px){
+  .hero-video-section{height:min(380px,80vw)}
+  .hero-text{padding:24px 16px}
+  .hero-text h1{font-size:clamp(1.5rem,6vw,2rem)}
+  .hero-sub{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ WHATSAPP FLOTTANT ══════ -->
+<div class="wa-fab" id="waFab">
+  <div class="wa-bubble" id="waBubble">
+    <button class="wa-bx" id="waBx" aria-label="Fermer">×</button>
+    <p>Une question ?</p><strong>Écrivez-nous !</strong>
+  </div>
+  <a href="https://wa.me/22657366666?text=Bonjour%20UNIMALL%2C%20j%27ai%20une%20question%20sur%20vos%20produits."
+     class="wa-main-btn" target="_blank" rel="noopener noreferrer"
+     aria-label="WhatsApp UNIMALL +226 57 36 66 66">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wl">WhatsApp</span>
+  </a>
+</div>
+<button class="scroll-top" id="stBtn" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></button>
+
+<!-- ══════ HEADER ══════ -->
+<header class="header" id="siteHeader">
+  <div class="topbar">
+    <div class="W tb-in">
+      <div class="tb-l">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>ZAD, Ouaga 2000 — Boulevard Tensoba, Ouagadougou</span>
+        <span class="tsep">·</span>
+        <i class="fas fa-clock"></i>
+        <span>Lun–Sam 9h–20h30 &nbsp;·&nbsp; Dim & jours feriés 11h–19h30</span>
+      </div>
+      <div class="tb-r">
+        <a href="tel:+22657366666"><i class="fas fa-phone"></i> 57 36 66 66</a>
+        <a href="https://www.facebook.com/photo/?fbid=122121797229140322&set=a.122099120295140322"
+           target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@unimallouaga" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hm">
+    <div class="W hm-in">
+      <a class="logo" id="logoHome" href="#" onclick="resetToAll();return false;" aria-label="UNIMALL Accueil">
+        <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="44" height="44"
+             fetchpriority="high"
+             onerror="this.outerHTML='<div style=\'width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#FF6600,#9b1c2c);display:flex;align-items:center;justify-content:center;flex-shrink:0\'><span style=\'font-family:Syne,sans-serif;font-size:13px;font-weight:900;color:white;letter-spacing:-0.5px\'>UN</span></div>'">
+        <div>
+          <span class="ln">UNI<em>MALL</em></span>
+          <span class="lt">Grand Magasin · Ouagadougou</span>
+        </div>
+      </a>
+      <!-- Recherche desktop -->
+      <div class="sw" role="search">
+        <div class="sb">
+          <i class="fas fa-search sb-ico" aria-hidden="true"></i>
+          <input type="search" id="searchInput" placeholder="Rechercher parmi tous les articles…"
+                 autocomplete="off" inputmode="search" aria-label="Rechercher">
+          <button class="sb-clr" id="searchClr" aria-label="Effacer" hidden>
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="suggest" id="suggestDd" role="listbox"></div>
+      </div>
+      <div class="ha">
+        <button class="hbtn mob-sb-btn" id="mobSbBtn" aria-label="Rechercher" aria-expanded="false">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="hamburger" id="menuBtn" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cat nav desktop -->
+    <div class="cat-nav">
+      <div class="W cn-in" id="cnIn"></div>
+    </div>
+
+    <!-- Barre recherche mobile -->
+    <div class="mob-sb" id="mobSb" aria-hidden="true">
+      <div class="W">
+        <div class="sb" style="border-radius:var(--r)">
+          <i class="fas fa-search sb-ico" aria-hidden="true"></i>
+          <input type="search" id="mobSbInput" placeholder="Rechercher…" autocomplete="off">
+          <button class="sb-clr" id="mobSbClose" aria-label="Fermer">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav mobile -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+  <nav class="nav-mob" id="navMob" aria-label="Menu mobile" aria-hidden="true">
+    <div class="nm-head">
+      <span class="ln" style="color:#fff">UNI<em>MALL</em></span>
+      <button class="nm-close" id="navClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+    <ul class="nm-list" id="nmList"></ul>
+    <div class="nm-foot">
+      <a href="tel:+22657366666" class="nm-phone"><i class="fas fa-phone"></i> 57 36 66 66</a>
+      <div class="nm-soc">
+        <a href="https://www.facebook.com/photo/?fbid=122121797229140322&set=a.122099120295140322"
+           target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@unimallouaga" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/22657366666" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ══════ HERO VIDÉO ══════ -->
+<section class="hero-video-section" id="heroSection">
+  <video autoplay muted loop playsinline
+         poster="assets/images/hero-poster.jpg"
+         onerror="this.closest('.hero-video-section').style.display='none'">
+    <source src="assets/videos/promo.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-text W">
+    <p class="hero-eyebrow">Grand Magasin · Ouagadougou</p>
+    <h1>Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
+    <p class="hero-sub">19 rayons · Ouaga 2000, Boulevard Tensoba</p>
+  </div>
+</section>
+
+<!-- ══════ TICKER ══════ -->
+<div class="ticker" role="marquee" aria-label="Annonces">
+  <div class="ticker-track">
+    <span><i class="fas fa-store"></i> UNIMALL — Ouaga 2000, Boulevard Tensoba, Ouagadougou</span>
+    <span><i class="fas fa-clock"></i> Lun–Sam 9h–20h30 · Dim & Jours feriés  11h–19h30</span>
+    <span><i class="fas fa-images"></i> 19 rayons · Meubles · Électronique · Cuisine · Sport · Mode</span>
+    <span><i class="fab fa-whatsapp"></i> Renseignements : +226 57 36 66 66</span>
+    <span><i class="fas fa-store"></i> UNIMALL — Ouaga 2000, Boulevard Tensoba, Ouagadougou</span>
+    <span><i class="fas fa-clock"></i> Lun–Sam 9h–20h30 · Dim & jours feriés 11h–19h30</span>
+    <span><i class="fas fa-images"></i> 19 rayons · Meubles · Électronique · Cuisine · Sport · Mode</span>
+    <span><i class="fab fa-whatsapp"></i> Renseignements : +226 57 36 66 66</span>
+  </div>
+</div>
+
+<!-- ══════ GRILLE PHOTOS (priorité visuelle, dès le haut) ══════ -->
+<main>
+  <section id="catalogueSection">
+    <div class="W">
+      <div class="ctrl-bar">
+        <div class="ctrl-left">
+          <h2 class="ctrl-title" id="ctrlTitle">Nos articles</h2>
+          <span class="shuffle-tag" id="shuffleTag"><i class="fas fa-random"></i> Aléatoire</span>
+          <span class="filter-tag" id="filterTag"><i class="fas fa-filter"></i> <span id="filterLabel"></span></span>
+          <span class="count-pill" id="countPill"></span>
+        </div>
+        <button class="reset-btn" id="resetBtn" onclick="resetToAll()">
+          <i class="fas fa-th-large"></i> Tout afficher
+        </button>
+      </div>
+
+      <!-- Chips filtre rapide -->
+      <div class="filter-bar" id="filterBar" role="group" aria-label="Filtrer"></div>
+
+      <!-- Grille photos épurée -->
+      <div class="photo-grid" id="photoGrid" role="list" aria-label="Catalogue photos">
+        <!-- Skeletons initiaux -->
+        <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+        <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+        <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+      </div>
+
+      <!-- État vide -->
+      <div class="empty-state" id="emptyState">
+        <i class="fas fa-search-minus"></i>
+        <h3>Aucun article trouvé</h3>
+        <p id="emptyMsg">Essayez un autre terme ou réinitialisez le filtre.</p>
+        <button class="btn-reset" onclick="resetToAll()"><i class="fas fa-redo"></i> Tout afficher</button>
+      </div>
+
+      <!-- Voir plus de produits -->
+      <div class="lm-wrap" id="lmWrap" style="display:none">
+        <button class="lm-btn" id="lmBtn">
+          <i class="fas fa-plus-circle"></i> Voir plus de produits
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ BENTO GRID 19 CATÉGORIES ══════ -->
+  <section class="bento-section" id="bentoSection">
+    <div class="W">
+      <div class="bento-head">
+        <span class="stag"><i class="fas fa-th-large"></i> Nos Rayons</span>
+        <h2 class="sec-title">19 catégories à explorer</h2>
+        <p class="sec-sub">Cliquez pour filtrer instantanément les photos</p>
+      </div>
+      <div class="bento-grid" id="bentoGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════ INFOS MAGASIN (tout en bas, avant le footer) ══════ -->
+  <section class="infos-section" id="infos">
+    <div class="W infos-grid">
+      <div class="infos-text">
+        <span class="stag">Notre magasin</span>
+        <h2>Visitez <strong>UNIMALL</strong></h2>
+        <p>Grand magasin de référence à Ouagadougou, UNIMALL réunit 19 rayons sous un même toit : meubles, électronique, cuisine, décoration, sport, mode, bricolage et bien plus encore.</p>
+        <p>Situés à <strong>Ouaga 2000, Boulevard Tensoba</strong>, nous vous accueillons tous les jours de la semaine.</p>
+        <div class="hours-box">
+          <div class="hrow"><span><i class="fas fa-calendar-week"></i> Lundi – Samedi</span><strong>9h00 – 20h30</strong></div>
+          <div class="hrow"><span><i class="fas fa-calendar-day"></i> Samedi – Jours feriés</span><strong>11h00 – 19h30</strong></div>
+        </div>
+        <div class="infos-btns">
+          <a href="tel:+22657366666" class="btn-o"><i class="fas fa-phone"></i> 57 36 66 66</a>
+          <a href="https://wa.me/22657366666" target="_blank" rel="noopener" class="btn-wa">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="contact-cards">
+        <div class="ccard">
+          <div class="cc-ico" style="background:#fff4e5;color:#ea580c"><i class="fas fa-map-marker-alt"></i></div>
+          <div><strong>Adresse</strong><span>Ouaga 2000, Boulevard Tensoba, Ouagadougou, Burkina Faso</span></div>
+        </div>
+        <div class="ccard">
+          <div class="cc-ico" style="background:#fef3c7;color:#d97706"><i class="fas fa-phone"></i></div>
+          <div><strong>Téléphone</strong><a href="tel:+22657366666">+226 57 36 66 66</a></div>
+        </div>
+        <div class="ccard">
+          <div class="cc-ico" style="background:#f0fdf4;color:#16a34a"><i class="fab fa-whatsapp"></i></div>
+          <div><strong>WhatsApp</strong><a href="https://wa.me/22657366666" target="_blank" rel="noopener">Envoyer un message</a></div>
+        </div>
+        <div class="ccard">
+          <div class="cc-ico" style="background:#eff6ff;color:#2563eb"><i class="fas fa-map"></i></div>
+          <div><strong>Maps</strong><a href="https://maps.google.com/?q=UNIMALL+Ouaga+2000+Tensoba+Ouagadougou" target="_blank" rel="noopener">Voir l'itinéraire</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="footer">
+  <div class="W fg">
+    <div class="fb-brand">
+      <div class="flogo">
+        <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="36" height="36"
+             loading="lazy" onerror="this.style.display='none'">
+        <div>
+          <span class="ln" style="color:#fff;font-size:19px">UNI<em>MALL</em></span>
+          <span class="lt" style="color:rgba(255,255,255,.38)">Ouagadougou</span>
+        </div>
+      </div>
+      <p>Grand magasin à Ouagadougou — 19 rayons pour tous vos besoins.</p>
+      <div class="fsoc">
+        <a href="https://www.facebook.com/photo/?fbid=122121797229140322&set=a.122099120295140322"
+           target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@unimallouaga" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/22657366666" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="fc">
+      <h4>Nos Rayons</h4>
+      <div class="fcats" id="footerCats"></div>
+    </div>
+    <div class="fc">
+      <h4>Informations</h4>
+      <ul class="finf">
+        <li><i class="fas fa-map-marker-alt"></i> Ouaga 2000, Boulevard Tensoba, Ouagadougou</li>
+        <li><i class="fas fa-phone"></i><a href="tel:+22657366666">+226 57 36 66 66</a></li>
+        <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/22657366666" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><i class="fas fa-clock"></i> Lun–Ven 9h–20h30 · Dim & Jours feriés 11h–19h30</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot"><p>© 2025 UNIMALL — Grand Magasin · Ouagadougou, Burkina Faso</p></div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ─── 19 CATÉGORIES ─────────────────────────────── */
+const CATS = [
+  { id:'Meubles',                    label:'Meubles',            icon:'couch',         color:'linear-gradient(140deg,#1c0a00,#5c2000,#FF6600)', size:'wide', badge:'Arrivage',  desc:'Canapés, tables, lits, armoires' },
+  { id:'Electronique',               label:'Électronique',        icon:'tv',            color:'linear-gradient(140deg,#0f172a,#1e3a5f,#2563eb)', size:'tall', badge:'Top vente', desc:'TV, téléphones, gadgets' },
+  { id:'Cuisine',                    label:'Cuisine',             icon:'utensils',      color:'linear-gradient(140deg,#7f1d1d,#991b1b,#b91c1c)', size:'',     badge:null,        desc:'Casseroles, appareils ménagers' },
+  { id:'Sport',                      label:'Sport',               icon:'dumbbell',      color:'linear-gradient(140deg,#052e16,#14532d,#16a34a)', size:'',     badge:'Nouveau',   desc:'Haltères, tapis, fitness' },
+  { id:'Mode_accessoires',           label:'Mode & Accessoires',  icon:'tshirt',        color:'linear-gradient(140deg,#111827,#1f2937,#374151)', size:'wide', badge:null,        desc:'Vêtements, chaussures, bijoux' },
+  { id:'Cosmetique',                 label:'Cosmétique',          icon:'spa',           color:'linear-gradient(140deg,#500724,#9f1239,#e11d48)', size:'',     badge:'Top vente', desc:'Soins beauté, parfums' },
+  { id:'Bricoleur',                  label:'Bricoleur',           icon:'hammer',        color:'linear-gradient(140deg,#1c1400,#4a3500,#d97706)', size:'',     badge:null,        desc:'Outils manuels, visserie' },
+  { id:'Decoration',                 label:'Décoration',          icon:'paint-brush',   color:'linear-gradient(140deg,#1e0030,#4a0072,#7c3aed)', size:'',     badge:'Nouveau',   desc:'Cadres, vases, déco' },
+  { id:'Eclairage',                  label:'Éclairage',           icon:'lightbulb',     color:'linear-gradient(140deg,#1a1500,#433700,#ca8a04)', size:'',     badge:null,        desc:'LED, lampadaires, guirlandes' },
+  { id:'Enfant',                     label:'Enfant',              icon:'child',         color:'linear-gradient(140deg,#0c4a6e,#075985,#0ea5e9)', size:'wide', badge:'Arrivage',  desc:'Jouets, vêtements, poussettes' },
+  { id:'Horloge',                    label:'Horlogerie',          icon:'clock',         color:'linear-gradient(140deg,#111,#1f1f1f,#3d3d3d)',   size:'',     badge:null,        desc:'Montres, horloges, réveils' },
+  { id:'Linges_chambre',             label:'Linge de chambre',    icon:'bed',           color:'linear-gradient(140deg,#1e3a5f,#1d4ed8,#3b82f6)', size:'',     badge:null,        desc:'Draps, couettes, oreillers' },
+  { id:'Nettoyage',                  label:'Nettoyage',           icon:'broom',         color:'linear-gradient(140deg,#064e3b,#065f46,#10b981)', size:'',     badge:null,        desc:'Aspirateurs, entretien' },
+  { id:'Outils_etudes_bureautiques', label:'Bureautique',         icon:'laptop',        color:'linear-gradient(140deg,#1e1b4b,#312e81,#4f46e5)', size:'',     badge:null,        desc:'Bureau, chaises, matériel' },
+  { id:'Outils_techniques',          label:'Outils Techniques',   icon:'tools',         color:'linear-gradient(140deg,#1c1a00,#3b3600,#84cc16)', size:'wide', badge:'Arrivage',  desc:'Perceuses, scies, niveaux' },
+  { id:'Rangements',                 label:'Rangements',          icon:'boxes-stacked', color:'linear-gradient(140deg,#280a02,#7f1d1d,#FF6600)', size:'',     badge:null,        desc:'Boîtes, étagères, organiseurs' },
+  { id:'Sacs_a_main',                label:'Sacs & Bagages',      icon:'bag-shopping',  color:'linear-gradient(140deg,#2d0a00,#7c2d12,#ea580c)', size:'',     badge:'Nouveau',   desc:'Sacs, valises, bagages' },
+  { id:'Utilitaires',                label:'Utilitaires',         icon:'wrench',        color:'linear-gradient(140deg,#0a1628,#1e3a5f,#3b82f6)', size:'',     badge:null,        desc:'Articles pratiques' },
+  { id:'Vehicule_moto',              label:'Véhicule & Moto',     icon:'motorcycle',    color:'linear-gradient(140deg,#111,#292524,#57534e)',   size:'wide', badge:'Top vente', desc:'Accessoires auto & moto' },
+];
+
+/* ─── DÉCOUVERTE ILLIMITÉE DES PHOTOS ────────────
+   Pour chaque catégorie, on tente photo1, photo2, photo3…
+   On s'arrête dès qu'une image renvoie une erreur 404.
+   Résultat stocké dans ALL_PHOTOS (Promise résolue au boot).
+────────────────────────────────────────────────── */
+const MAX_PROBE = 60; // sécurité : jamais plus de 60 photos par catégorie
+
+function probePhoto(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload  = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+async function discoverPhotos() {
+  const list = [];
+  for (const cat of CATS) {
+    for (let n = 1; n <= MAX_PROBE; n++) {
+      const url = `assets/images/${cat.id}/photo${n}.jpg`;
+      const ok  = await probePhoto(url);
+      if (!ok) break; // plus d'image dans cette catégorie
+      list.push({
+        catId:    cat.id,
+        catLabel: cat.label,
+        catIcon:  cat.icon,
+        catColor: cat.color,
+        img:      url,
+        photoN:   n,
+      });
+    }
+  }
+  return list;
+}
+
+/* ─── Shuffle Fisher-Yates ───────────────────── */
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ─── État global ────────────────────────────── */
+let ALL_PHOTOS  = [];   // rempli après découverte async
+let currentCat  = 'all';
+let searchQ     = '';
+let pageIndex   = 0;
+const PAGE_SZ   = 12;  // photos par page ("Voir plus")
+
+/* ─── Filtrage ───────────────────────────────── */
+function getFiltered() {
+  let items = ALL_PHOTOS;
+  if (currentCat !== 'all') {
+    items = items.filter(p => p.catId === currentCat);
+  }
+  if (searchQ.trim()) {
+    const q = searchQ.toLowerCase();
+    items = items.filter(p =>
+      p.catLabel.toLowerCase().includes(q) ||
+      p.catId.toLowerCase().includes(q)
+    );
+  }
+  return items;
+}
+
+/* ─── Message WhatsApp dynamique ─────────────── */
+function waMsg(catLabel) {
+  return encodeURIComponent(
+    `Bonjour UNIMALL, je suis intéressé(e) par un article de la catégorie ${catLabel}. Pouvez-vous m'aider ?`
+  );
+}
+function waLink(catLabel) {
+  return `https://wa.me/22657366666?text=${waMsg(catLabel)}`;
+}
+
+/* ─── Rendu d'une carte photo épurée ─────────── */
+function makePhotoCard(p, eager) {
+  const imgAttr = eager
+    ? `src="${p.img}" class="pcard-img loaded"`
+    : `data-src="${p.img}" class="pcard-img" src=""`;
+
+  return `
+    <article class="pcard reveal" role="listitem" aria-label="Produit du rayon ${p.catLabel} chez UNIMALL Ouagadougou">
+      <img ${imgAttr} alt="Produit du rayon ${p.catLabel} chez UNIMALL Ouagadougou" width="400" height="533"
+           loading="${eager ? 'eager' : 'lazy'}"
+           onerror="this.style.display='none'">
+      <div class="pcard-grad" aria-hidden="true"></div>
+      <div class="pcard-placeholder" aria-hidden="true">
+        <i class="fas fa-${p.catIcon}" style="color:rgba(0,0,0,.1);font-size:40px"></i>
+      </div>
+      <div class="pcard-cat">
+        <i class="fas fa-${p.catIcon}"></i>
+        ${p.catLabel}
+      </div>
+      <a href="${waLink(p.catLabel)}"
+         class="pcard-wa"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="WhatsApp — ${p.catLabel}"
+         onclick="event.stopPropagation()">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </article>`;
+}
+
+/* ─── Rendu de la grille ─────────────────────── */
+function renderGrid(reset = true) {
+  const grid   = document.getElementById('photoGrid');
+  const empty  = document.getElementById('emptyState');
+  const lmWrap = document.getElementById('lmWrap');
+  const cnt    = document.getElementById('countPill');
+
+  if (reset) pageIndex = 0;
+
+  const items   = getFiltered();
+  const total   = items.length;
+  const page    = items.slice(pageIndex, pageIndex + PAGE_SZ);
+  const hasMore = (pageIndex + PAGE_SZ) < total;
+
+  if (cnt) cnt.textContent = `${total} photo${total > 1 ? 's' : ''}`;
+
+  if (!total) {
+    grid.innerHTML = '';
+    empty.classList.add('show');
+    if (lmWrap) lmWrap.style.display = 'none';
+    return;
+  }
+  empty.classList.remove('show');
+
+  if (reset) {
+    grid.innerHTML = Array(Math.min(PAGE_SZ, page.length)).fill('<div class="skel"></div>').join('');
+    requestAnimationFrame(() => {
+      grid.innerHTML = page.map((p, i) => makePhotoCard(p, i < 12)).join('');
+      pageIndex += page.length;
+      if (lmWrap) lmWrap.style.display = hasMore ? 'flex' : 'none';
+      initLazy();
+      initReveal();
+    });
+  } else {
+    grid.insertAdjacentHTML('beforeend', page.map(p => makePhotoCard(p, false)).join(''));
+    pageIndex += page.length;
+    if (lmWrap) lmWrap.style.display = (pageIndex < total) ? 'flex' : 'none';
+    initLazy();
+    initReveal();
+  }
+}
+
+/* ─── Mise à jour UI filtre ──────────────────── */
+function updateUI() {
+  const title    = document.getElementById('ctrlTitle');
+  const shtag    = document.getElementById('shuffleTag');
+  const ftag     = document.getElementById('filterTag');
+  const flabel   = document.getElementById('filterLabel');
+  const resetBtn = document.getElementById('resetBtn');
+
+  document.querySelectorAll('.fchip').forEach(c =>
+    c.classList.toggle('active', c.dataset.cat === currentCat));
+  document.querySelectorAll('.cpill').forEach(c =>
+    c.classList.toggle('active', c.dataset.cat === currentCat));
+  document.querySelectorAll('.nm-btn').forEach(c =>
+    c.classList.toggle('active', c.dataset.cat === currentCat));
+
+  if (currentCat === 'all') {
+    if (title)  title.textContent = 'Nos articles';
+    if (shtag)  shtag.style.display = 'inline-flex';
+    if (ftag)   ftag.classList.remove('show');
+    if (resetBtn) resetBtn.style.opacity = '.5';
+  } else {
+    const cat = CATS.find(c => c.id === currentCat);
+    if (title)  title.textContent = cat ? cat.label : currentCat;
+    if (shtag)  shtag.style.display = 'none';
+    if (ftag)   ftag.classList.add('show');
+    if (flabel) flabel.textContent = cat ? cat.label : currentCat;
+    if (resetBtn) resetBtn.style.opacity = '1';
+  }
+}
+
+/* ─── Filtrer / Tout afficher ────────────────── */
+function filterByCat(catId) {
+  currentCat = catId;
+  searchQ    = '';
+  clearSearch();
+  updateUI();
+  renderGrid(true);
+  document.getElementById('catalogueSection')
+    .scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function resetToAll() {
+  currentCat = 'all';
+  searchQ    = '';
+  clearSearch();
+  updateUI();
+  renderGrid(true);
+}
+function clearSearch() {
+  const inp = document.getElementById('searchInput');
+  const clr = document.getElementById('searchClr');
+  const im  = document.getElementById('mobSbInput');
+  if (inp) inp.value = '';
+  if (clr) clr.hidden = true;
+  if (im)  im.value  = '';
+  document.getElementById('suggestDd')?.classList.remove('open');
+}
+
+/* ─── Recherche ──────────────────────────────── */
+function runSearch(q) {
+  searchQ = q;
+  if (q.length > 0) currentCat = 'all';
+  updateUI();
+
+  const dd = document.getElementById('suggestDd');
+  if (!dd) return;
+
+  if (!q || q.length < 2) {
+    dd.classList.remove('open');
+    renderGrid(true);
+    return;
+  }
+
+  // Suggestions = catégories qui matchent
+  const matches = CATS.filter(c =>
+    c.label.toLowerCase().includes(q.toLowerCase()) ||
+    c.id.toLowerCase().includes(q.toLowerCase())
+  ).slice(0, 7);
+
+  if (!matches.length) { dd.classList.remove('open'); renderGrid(true); return; }
+
+  dd.innerHTML = matches.map(c => `
+    <div class="sug-row" onclick="filterByCat('${c.id}')">
+      <div class="sug-dot" style="background:${c.color}">
+        <i class="fas fa-${c.icon}"></i>
+      </div>
+      <div>
+        <span class="sug-name">${c.label}</span>
+        <span class="sug-meta">${c.desc}</span>
+      </div>
+    </div>`).join('');
+  dd.classList.add('open');
+  renderGrid(true);
+}
+
+function initSearch() {
+  const inp    = document.getElementById('searchInput');
+  const clr    = document.getElementById('searchClr');
+  const mobBtn = document.getElementById('mobSbBtn');
+  const mobBar = document.getElementById('mobSb');
+  const mobCl  = document.getElementById('mobSbClose');
+  const mobInp = document.getElementById('mobSbInput');
+
+  inp?.addEventListener('input', e => {
+    if (clr) clr.hidden = !e.target.value;
+    runSearch(e.target.value);
+  });
+  inp?.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { document.getElementById('suggestDd').classList.remove('open'); }
+  });
+  clr?.addEventListener('click', () => { resetToAll(); });
+  mobInp?.addEventListener('input', e => runSearch(e.target.value));
+
+  mobBtn?.addEventListener('click', () => {
+    const open = mobBar?.classList.toggle('open');
+    mobBar?.setAttribute('aria-hidden', String(!open));
+    mobBtn?.setAttribute('aria-expanded', String(!!open));
+    if (open) setTimeout(() => mobInp?.focus(), 60);
+  });
+  mobCl?.addEventListener('click', () => {
+    mobBar?.classList.remove('open');
+    mobBar?.setAttribute('aria-hidden', 'true');
+    mobBtn?.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.sw') && !e.target.closest('.mob-sb'))
+      document.getElementById('suggestDd')?.classList.remove('open');
+  });
+}
+
+/* ─── Construire les barres de nav ───────────── */
+function buildNavs() {
+  // Cat nav desktop
+  const cn = document.getElementById('cnIn');
+  if (cn) {
+    cn.innerHTML =
+      `<button class="cpill all-pill active" data-cat="all" onclick="resetToAll()">
+        <i class="fas fa-th-large"></i> Tout afficher
+      </button>` +
+      CATS.map(c => `
+        <button class="cpill" data-cat="${c.id}" onclick="filterByCat('${c.id}')">
+          <i class="fas fa-${c.icon}"></i> ${c.label}
+        </button>`).join('');
+  }
+
+  // Filter chips
+  const fb = document.getElementById('filterBar');
+  if (fb) {
+    fb.innerHTML =
+      `<button class="fchip fall active" data-cat="all" onclick="resetToAll()">
+        <i class="fas fa-th-large"></i> Tout
+      </button>` +
+      CATS.map(c => `
+        <button class="fchip" data-cat="${c.id}" onclick="filterByCat('${c.id}')">
+          <i class="fas fa-${c.icon}"></i> ${c.label}
+        </button>`).join('');
+  }
+
+  // Nav mobile
+  const nl = document.getElementById('nmList');
+  if (nl) {
+    nl.innerHTML =
+      `<li><button class="nm-btn all-mob" data-cat="all" onclick="resetToAll();closeNav()">
+        <i class="fas fa-th-large"></i> Tout afficher
+      </button></li>` +
+      CATS.map(c => `
+        <li><button class="nm-btn" data-cat="${c.id}" onclick="filterByCat('${c.id}');closeNav()">
+          <i class="fas fa-${c.icon}"></i> ${c.label}
+        </button></li>`).join('');
+  }
+
+  // Footer cats
+  const fc = document.getElementById('footerCats');
+  if (fc) {
+    fc.innerHTML = CATS.map(c => `
+      <button class="fcl" onclick="filterByCat('${c.id}');window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-chevron-right"></i> ${c.label}
+      </button>`).join('');
+  }
+}
+
+/* ─── Bento Grid ─────────────────────────────── */
+function renderBento() {
+  const grid = document.getElementById('bentoGrid');
+  if (!grid) return;
+  grid.innerHTML = CATS.map(cat => {
+    const cls = cat.size === 'wide' ? 'tile tile-wide'
+              : cat.size === 'tall' ? 'tile tile-tall' : 'tile';
+    const badge = cat.badge ? `<div class="tile-badge">${cat.badge}</div>` : '';
+    return `
+      <div class="${cls}" style="background:${cat.color}"
+           onclick="filterByCat('${cat.id}')"
+           role="button" tabindex="0" aria-label="${cat.label}"
+           onkeydown="if(event.key==='Enter'||event.key===' ')filterByCat('${cat.id}')">
+        <img class="tile-photo" data-src="assets/images/${cat.id}/photo1.jpg"
+             alt="${cat.label}" loading="lazy">
+        <div class="tile-bg-i" aria-hidden="true"><i class="fas fa-${cat.icon}"></i></div>
+        <div class="tile-content">
+          ${badge}
+          <h3 class="tile-title">${cat.label}</h3>
+          <p class="tile-desc">${cat.desc}</p>
+          <span class="tile-cta">Filtrer <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>`;
+  }).join('');
+  initLazy();
+}
+
+/* ─── Lazy Loading ───────────────────────────── */
+function initLazy() {
+  const imgs = document.querySelectorAll('img[data-src]');
+  if (!imgs.length) return;
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries, ob) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const img = e.target;
+        const src = img.dataset.src;
+        if (!src) return;
+        const l = new Image();
+        l.onload  = () => { img.src = src; img.classList.add('loaded'); };
+        l.onerror = () => { img.classList.add('loaded'); };
+        l.src = src;
+        ob.unobserve(img);
+      });
+    }, { rootMargin: '300px 0px' });
+    imgs.forEach(i => obs.observe(i));
+  } else {
+    imgs.forEach(img => {
+      const src = img.dataset.src;
+      if (!src) return;
+      img.src = src;
+      img.classList.add('loaded');
+    });
+  }
+}
+
+/* ─── Reveal Animations ──────────────────────── */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.05 });
+function initReveal() {
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => revObs.observe(el));
+}
+
+/* ─── Nav Mobile ─────────────────────────────── */
+function openNav() {
+  document.getElementById('navMob')?.classList.add('open');
+  document.getElementById('navOverlay')?.classList.add('open');
+  document.getElementById('menuBtn')?.classList.add('open');
+  document.getElementById('navMob')?.removeAttribute('aria-hidden');
+  document.getElementById('menuBtn')?.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('navClose')?.focus(), 60);
+}
+function closeNav() {
+  document.getElementById('navMob')?.classList.remove('open');
+  document.getElementById('navOverlay')?.classList.remove('open');
+  document.getElementById('menuBtn')?.classList.remove('open');
+  document.getElementById('navMob')?.setAttribute('aria-hidden', 'true');
+  document.getElementById('menuBtn')?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+function initNav() {
+  document.getElementById('menuBtn')?.addEventListener('click', () =>
+    document.getElementById('navMob')?.classList.contains('open') ? closeNav() : openNav());
+  document.getElementById('navOverlay')?.addEventListener('click', closeNav);
+  document.getElementById('navClose')?.addEventListener('click', closeNav);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+}
+
+/* ─── Scroll Top ─────────────────────────────── */
+function initScrollTop() {
+  const btn = document.getElementById('stBtn');
+  if (!btn) return;
+  let t = false;
+  window.addEventListener('scroll', () => {
+    if (!t) { requestAnimationFrame(() => { btn.classList.toggle('show', window.scrollY > 400); t = false; }); t = true; }
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+/* ─── Header Shadow ──────────────────────────── */
+function initHeaderShadow() {
+  const h = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    h?.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+}
+
+/* ─── WhatsApp Bulle ─────────────────────────── */
+function initWA() {
+  const b = document.querySelector('.wa-bubble');
+  const x = document.getElementById('waBx');
+  const K = 'um_wa_v8';
+  if (sessionStorage.getItem(K)) b?.classList.add('gone');
+  x?.addEventListener('click', () => { b?.classList.add('gone'); sessionStorage.setItem(K,'1'); });
+  if (window.innerWidth <= 768) {
+    window.addEventListener('scroll', () => {
+      if (!sessionStorage.getItem(K)) b?.classList.toggle('gone', window.scrollY > 150);
+    }, { passive: true });
+  }
+}
+
+/* ─── Charger plus ───────────────────────────── */
+function initLoadMore() {
+  document.getElementById('lmBtn')?.addEventListener('click', () => renderGrid(false));
+}
+
+/* ─── INIT ───────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', async () => {
+  buildNavs();
+  renderBento();
+  initSearch();
+  initNav();
+  initLoadMore();
+  initScrollTop();
+  initHeaderShadow();
+  initWA();
+  setTimeout(initReveal, 80);
+
+  // Afficher skeletons pendant la découverte
+  const grid = document.getElementById('photoGrid');
+  if (grid) grid.innerHTML = Array(12).fill('<div class="skel"></div>').join('');
+
+  // Découverte illimitée des photos via img.onload/onerror
+  const found = await discoverPhotos();
+  ALL_PHOTOS  = shuffle(found);
+
+  // Mettre à jour le countPill dès que c'est prêt
+  const cnt = document.getElementById('countPill');
+  if (cnt) cnt.textContent = `${ALL_PHOTOS.length} photo${ALL_PHOTOS.length > 1 ? 's' : ''}`;
+
+  renderGrid(true);
+
+  console.log(`%c UNIMALL V9 ✅ — ${ALL_PHOTOS.length} photos découvertes · 19 catégories · Illimité`,
+    'background:linear-gradient(90deg,#FF6600,#9b1c2c);color:#fff;padding:6px 16px;border-radius:6px;font-weight:bold;font-size:12px');
+});
+</script>
+>>>>>>> f1d4d680b3f63a273236bb6dc5a308d893564a57
 </body>
 </html>
