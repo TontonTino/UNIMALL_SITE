@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#FF6600">
+    <title>UNIMALL Ouagadougou | Grand Magasin — 19 Rayons</title>
+    <meta name="description" content="UNIMALL — votre grand magasin à Ouagadougou. Meubles, électronique, cosmétiques, sport, cuisine, bricolage et bien plus. Ouaga 2000, Boulevard Tensoba.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets refactorisés -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/catalogue.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <!-- WhatsApp Flottant -->
+    <div class="wa-fab">
+        <div class="wa-bubble" id="waBubble">
+            <button class="wa-bx" id="waBx" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            <p>Besoin d'aide ?</p>
+            <strong>Discutez avec nous !</strong>
+        </div>
+        <a href="https://wa.me/22657366666" target="_blank" rel="noopener" class="wa-main-btn">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- Scroll Top -->
+    <button class="scroll-top" id="stBtn" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" id="siteHeader">
+        <div class="topbar">
+            <div class="W tb-in">
+                <div class="tb-l">
+                    <i class="fas fa-map-marker-alt"></i> Ouaga 2000, Boulevard Tensoba
+                    <span class="tsep">·</span>
+                    <i class="fas fa-phone"></i> +226 57 36 66 66
+                </div>
+                <div class="tb-r">
+                    <a href="https://www.facebook.com/photo/?fbid=122121797229140322&set=a.122099120295140322" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@unimallouaga" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/22657366666" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="hm">
+            <div class="W hm-in">
+                <a class="logo" id="logoHome" href="#" aria-label="UNIMALL Accueil">
+                    <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="44" height="44"
+                         fetchpriority="high">
+                    <div>
+                        <span class="ln">UNI<em>MALL</em></span>
+                        <span class="lt">Grand Magasin · Ouagadougou</span>
+                    </div>
+                </a>
+                <!-- Recherche desktop -->
+                <div class="sw" role="search">
+                    <div class="sb">
+                        <i class="fas fa-search sb-ico" aria-hidden="true"></i>
+                        <input type="search" id="searchInput" placeholder="Rechercher parmi tous les articles…"
+                               autocomplete="off" inputmode="search" aria-label="Rechercher">
+                        <button class="sb-clr" id="searchClr" aria-label="Effacer" hidden>
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="suggest" id="suggestDd" role="listbox"></div>
+                </div>
+                <div class="ha">
+                    <button class="hbtn mob-sb-btn" id="mobSbBtn" aria-label="Rechercher" aria-expanded="false">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="hamburger" id="menuBtn" aria-label="Menu" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cat nav desktop -->
+            <div class="cat-nav">
+                <div class="W cn-in" id="cnIn"></div>
+            </div>
+
+            <!-- Barre recherche mobile -->
+            <div class="mob-sb" id="mobSb" aria-hidden="true">
+                <div class="W">
+                    <div class="sb" style="border-radius:var(--r)">
+                        <i class="fas fa-search sb-ico" aria-hidden="true"></i>
+                        <input type="search" id="mobSbInput" placeholder="Rechercher…" autocomplete="off">
+                        <button class="sb-clr" id="mobSbClose" aria-label="Fermer">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nav mobile -->
+        <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+        <nav class="nav-mob" id="navMob" aria-label="Menu mobile" aria-hidden="true">
+            <div class="nm-head">
+                <span class="ln" style="color:#fff">UNI<em>MALL</em></span>
+                <button class="nm-close" id="navClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            </div>
+            <ul class="nm-list" id="nmList"></ul>
+            <div class="nm-foot">
+                <a href="tel:+22657366666" class="nm-phone"><i class="fas fa-phone"></i> 57 36 66 66</a>
+                <div class="nm-soc">
+                    <a href="https://www.facebook.com/photo/?fbid=122121797229140322&set=a.122099120295140322"
+                       target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@unimallouaga" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/22657366666" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO VIDÉO -->
+    <section class="hero-video-section" id="heroSection">
+        <video autoplay muted loop playsinline
+               poster="assets/images/hero-poster.jpg">
+            <source src="assets/videos/promo.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-text W">
+            <p class="hero-eyebrow">Grand Magasin · Ouagadougou</p>
+            <h1>Tout ce dont vous avez besoin,<br><span>en un seul endroit</span></h1>
+            <p class="hero-sub">19 rayons · Ouaga 2000, Boulevard Tensoba</p>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" role="marquee" aria-label="Annonces">
+        <div class="ticker-track">
+            <span><i class="fas fa-store"></i> UNIMALL — Ouaga 2000, Boulevard Tensoba, Ouagadougou</span>
+            <span><i class="fas fa-clock"></i> Lun–Sam 9h–20h30 · Dim & Jours feriés  11h–19h30</span>
+            <span><i class="fas fa-images"></i> 19 rayons · Meubles · Électronique · Cuisine · Sport · Mode</span>
+            <span><i class="fab fa-whatsapp"></i> Renseignements : +226 57 36 66 66</span>
+            <span><i class="fas fa-store"></i> UNIMALL — Ouaga 2000, Boulevard Tensoba, Ouagadougou</span>
+            <span><i class="fas fa-clock"></i> Lun–Sam 9h–20h30 · Dim & jours feriés 11h–19h30</span>
+            <span><i class="fas fa-images"></i> 19 rayons · Meubles · Électronique · Cuisine · Sport · Mode</span>
+            <span><i class="fab fa-whatsapp"></i> Renseignements : +226 57 36 66 66</span>
+        </div>
+    </div>
+
+    <!-- GRILLE PHOTOS (priorité visuelle, dès le haut) -->
+    <main>
+        <section id="catalogueSection">
+            <div class="W">
+                <div class="ctrl-bar">
+                    <div class="ctrl-left">
+                        <h2 class="ctrl-title" id="ctrlTitle">Nos articles</h2>
+                        <span class="shuffle-tag" id="shuffleTag"><i class="fas fa-random"></i> Aléatoire</span>
+                        <span class="filter-tag" id="filterTag"><i class="fas fa-filter"></i> <span id="filterLabel"></span></span>
+                        <span class="count-pill" id="countPill"></span>
+                    </div>
+                    <button class="reset-btn" id="resetBtn">
+                        <i class="fas fa-th-large"></i> Tout afficher
+                    </button>
+                </div>
+
+                <!-- Chips filtre rapide -->
+                <div class="filter-bar" id="filterBar" role="group" aria-label="Filtrer"></div>
+
+                <!-- Grille photos épurée -->
+                <div class="photo-grid" id="photoGrid" role="list" aria-label="Catalogue photos">
+                    <!-- Skeletons initiaux -->
+                    <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+                    <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+                    <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+                </div>
+
+                <!-- État vide -->
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-search-minus"></i>
+                    <h3>Aucun article trouvé</h3>
+                    <p id="emptyMsg">Essayez un autre terme ou réinitialisez le filtre.</p>
+                    <button class="btn-reset"><i class="fas fa-redo"></i> Tout afficher</button>
+                </div>
+
+                <!-- Voir plus de produits -->
+                <div class="lm-wrap" id="lmWrap" style="display:none">
+                    <button class="lm-btn" id="lmBtn">
+                        <i class="fas fa-plus-circle"></i> Voir plus de produits
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENTO GRID 19 CATÉGORIES -->
+        <section class="bento-section" id="bentoSection">
+            <div class="W">
+                <div class="bento-head">
+                    <span class="stag"><i class="fas fa-th-large"></i> Nos Rayons</span>
+                    <h2 class="sec-title">19 catégories à explorer</h2>
+                    <p class="sec-sub">Cliquez pour filtrer instantanément les photos</p>
+                </div>
+                <div class="bento-grid" id="bentoGrid"></div>
+            </div>
+        </section>
+
+        <!-- INFOS MAGASIN (tout en bas, avant le footer) -->
+        <section class="infos-section" id="infos">
+            <div class="W infos-grid">
+                <div class="infos-text">
+                    <span class="stag">Notre magasin</span>
+                    <h2>Visitez <strong>UNIMALL</strong></h2>
+                    <p>Grand magasin de référence à Ouagadougou, UNIMALL réunit 19 rayons sous un même toit : meubles, électronique, cuisine, décoration, sport, mode, bricolage et bien plus encore.</p>
+                    <p>Situés à <strong>Ouaga 2000, Boulevard Tensoba</strong>, nous vous accueillons tous les jours de la semaine.</p>
+                    <div class="hours-box">
+                        <div class="hrow"><span><i class="fas fa-calendar-week"></i> Lundi – Samedi</span><strong>9h00 – 20h30</strong></div>
+                        <div class="hrow"><span><i class="fas fa-calendar-day"></i> Samedi – Jours feriés</span><strong>11h00 – 19h30</strong></div>
+                    </div>
+                    <div class="infos-btns">
+                        <a href="tel:+22657366666" class="btn-o"><i class="fas fa-phone"></i> 57 36 66 66</a>
+                        <a href="https://wa.me/22657366666" target="_blank" rel="noopener" class="btn-wa">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-cards">
+                    <div class="ccard">
+                        <div class="cc-ico" style="background:#fff4e5;color:#ea580c"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><strong>Adresse</strong><span>Ouaga 2000, Boulevard Tensoba, Ouagadougou, Burkina Faso</span></div>
+                    </div>
+                    <div class="ccard">
+                        <div class="cc-ico" style="background:#fef3c7;color:#d97706"><i class="fas fa-phone"></i></div>
+                        <div><strong>Téléphone</strong><a href="tel:+22657366666">+226 57 36 66 66</a></div>
+                    </div>
+                    <div class="ccard">
+                        <div class="cc-ico" style="background:#f0fdf4;color:#16a34a"><i class="fab fa-whatsapp"></i></div>
+                        <div><strong>WhatsApp</strong><a href="https://wa.me/22657366666" target="_blank" rel="noopener">Envoyer un message</a></div>
+                    </div>
+                    <div class="ccard">
+                        <div class="cc-ico" style="background:#eff6ff;color:#2563eb"><i class="fas fa-map"></i></div>
+                        <div><strong>Maps</strong><a href="https://maps.google.com/?q=UNIMALL+Ouaga+2000+Tensoba+Ouagadougou" target="_blank" rel="noopener">Voir l'itinéraire</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="W fg">
+            <div class="fb-brand">
+                <div class="flogo">
+                    <img src="assets/images/logo-unimall.png" alt="UNIMALL" width="36" height="36"
+                         loading="lazy">
+                    <div>
+                        <span class="ln" style="color:#fff;font-size:19px">UNI<em>MALL</em></span>
+                        <span class="lt" style="color:rgba(255,255,255,.38)">Ouagadougou</span>
+                    </div>
+                </div>
+                <p>Grand magasin à Ouagadougou — 19 rayons pour tous vos besoins.</p>
+                <div class="fsoc">
+                    <a href="https://www.facebook.com/photo/?fbid=122121797229140322&set=a.122099120295140322"
+                       target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@unimallouaga" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/22657366666" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="fc">
+                <h4>Nos Rayons</h4>
+                <div class="fcats" id="footerCats"></div>
+            </div>
+            <div class="fc">
+                <h4>Informations</h4>
+                <ul class="finf">
+                    <li><i class="fas fa-map-marker-alt"></i> Ouaga 2000, Boulevard Tensoba, Ouagadougou</li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+22657366666">+226 57 36 66 66</a></li>
+                    <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/22657366666" target="_blank" rel="noopener">WhatsApp</a></li>
+                    <li><i class="fas fa-clock"></i> Lun–Ven 9h–20h30 · Dim & Jours feriés 11h–19h30</li>
+                </ul>
+            </div>
+        </div>
+        <div class="fbot"><p>© 2025 UNIMALL — Grand Magasin · Ouagadougou, Burkina Faso</p></div>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+export const CATS = [
+  { id:'Meubles',                    label:'Meubles',            icon:'couch',         color:'linear-gradient(140deg,#1c0a00,#5c2000,#FF6600)', size:'wide', badge:'Arrivage',  desc:'Canapés, tables, lits, armoires' },
+  { id:'Electronique',               label:'Électronique',        icon:'tv',            color:'linear-gradient(140deg,#0f172a,#1e3a5f,#2563eb)', size:'tall', badge:'Top vente', desc:'TV, téléphones, gadgets' },
+  { id:'Cuisine',                    label:'Cuisine',             icon:'utensils',      color:'linear-gradient(140deg,#7f1d1d,#991b1b,#b91c1c)', size:'none',     badge:null,        desc:'Casseroles, appareils ménagers' },
+  { id:'Sport',                      label:'Sport',               icon:'dumbbell',      color:'linear-gradient(140deg,#052e16,#14532d,#16a34a)', size:'none',     badge:'Nouveau',   desc:'Haltères, tapis, fitness' },
+  { id:'Mode_accessoires',           label:'Mode & Accessoires',  icon:'tshirt',        color:'linear-gradient(140deg,#111827,#1f2937,#374151)', size:'wide', badge:null,        desc:'Vêtements, chaussures, bijoux' },
+  { id:'Cosmetique',                 label:'Cosmétique',          icon:'spa',           color:'linear-gradient(140deg,#500724,#9f1239,#e11d48)', size:'none',     badge:'Top vente', desc:'Soins beauté, parfums' },
+  { id:'Bricoleur',                  label:'Bricoleur',           icon:'hammer',        color:'linear-gradient(140deg,#1c1400,#4a3500,#d97706)', size:'none',     badge:null,        desc:'Outils manuels, visserie' },
+  { id:'Decoration',                 label:'Décoration',          icon:'paint-brush',   color:'linear-gradient(140deg,#1e0030,#4a0072,#7c3aed)', size:'none',     badge:'Nouveau',   desc:'Cadres, vases, déco' },
+  { id:'Eclairage',                  label:'Éclairage',           icon:'lightbulb',     color:'linear-gradient(140deg,#1a1500,#433700,#ca8a04)', size:'none',     badge:null,        desc:'LED, lampadaires, guirlandes' },
+  { id:'Enfant',                     label:'Enfant',              icon:'child',         color:'linear-gradient(140deg,#0c4a6e,#075985,#0ea5e9)', size:'wide', badge:'Arrivage',  desc:'Jouets, vêtements, poussettes' },
+  { id:'Horloge',                    label:'Horlogerie',          icon:'clock',         color:'linear-gradient(140deg,#111,#1f1f1f,#3d3d3d)',   size:'none',     badge:null,        desc:'Montres, horloges, réveils' },
+  { id:'Linges_chambre',             label:'Linge de chambre',    icon:'bed',           color:'linear-gradient(140deg,#1e3a5f,#1d4ed8,#3b82f6)', size:'none',     badge:null,        desc:'Draps, couettes, oreillers' },
+  { id:'Nettoyage',                  label:'Nettoyage',           icon:'broom',         color:'linear-gradient(140deg,#064e3b,#065f46,#10b981)', size:'none',     badge:null,        desc:'Aspirateurs, entretien' },
+  { id:'Outils_etudes_bureautiques', label:'Bureautique',         icon:'laptop',        color:'linear-gradient(140deg,#1e1b4b,#312e81,#4f46e5)', size:'none',     badge:null,        desc:'Bureau, chaises, fournitures' },
+  { id:'Animalerie',                 label:'Animalerie',          icon:'paw',           color:'linear-gradient(140deg,#4c0519,#881337,#be123c)', size:'none',     badge:null,        desc:'Nourriture, accessoires animaux' },
+  { id:'Jardin',                     label:'Jardin',              icon:'leaf',          color:'linear-gradient(140deg,#0f172a,#1e3a5f,#2563eb)', size:'none',     badge:'Nouveau',   desc:'Plantes, outils, mobilier' },
+  { id:'Auto_moto',                  label:'Auto & Moto',         icon:'car',           color:'linear-gradient(140deg,#1c1400,#4a3500,#d97706)', size:'none',     badge:null,        desc:'Accessoires, entretien véhicules' },
+  { id:'Librairie',                  label:'Librairie',           icon:'book-open',     color:'linear-gradient(140deg,#500724,#9f1239,#e11d48)', size:'none',     badge:null,        desc:'Livres, papeterie, fournitures' },
+  { id:'Jeux_video',                 label:'Jeux Vidéo',          icon:'gamepad',       color:'linear-gradient(140deg,#0c4a6e,#075985,#0ea5e9)', size:'none',     badge:'Top vente', desc:'Consoles, jeux, accessoires' }
+];

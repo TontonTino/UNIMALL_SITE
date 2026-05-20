@@ -1,0 +1,78 @@
+@media (max-width: 1100px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .fg {
+    grid-template-columns: 1fr 1fr;
+  }
+  .infos-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    display: none;
+  }
+  .hm-in {
+    justify-content: space-between;
+  }
+  .sw {
+    display: none;
+  }
+  .mob-sb-btn,
+  .hamburger {
+    display: flex;
+  }
+  .cat-nav {
+    display: none;
+  }
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  .tile-wide {
+    grid-column: span 2;
+  }
+  .tile-tall {
+    grid-row: span 2;
+  }
+  .hero-video-section {
+    height: 450px;
+  }
+  .fg {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .fcats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 160px;
+  }
+  .tile-wide,
+  .tile-tall {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .ln {
+    font-size: 20px;
+  }
+  .lt {
+    font-size: 9px;
+  }
+  .sec-title {
+    font-size: 1.5rem;
+  }
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
